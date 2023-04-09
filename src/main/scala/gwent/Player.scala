@@ -11,10 +11,10 @@ class Player(val name: String, val section: Int) extends isPlayer {
   def getHand: Hand = {
     hand
   }
-  def playCard(card: Card): Unit = {
+  def playCard(card: UnitCard): Unit = {
     hand.discard(card)
   }
-  def drawCard(card: Card): Unit = {
+  def drawCard(card: UnitCard): Unit = {
     deck.discard(card)
     hand.add(card)
   }

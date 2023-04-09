@@ -4,14 +4,14 @@ import munit.FunSuite
 
 class DeckTest extends FunSuite{
   var deck: Deck = null
-  var card1: Card = null
-  var card2: Card = null
-  var card3: Card = null
+  var card1: UnitCard = null
+  var card2: UnitCard = null
+  var card3: UnitCard = null
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card1 = new Card()
-    card2 = new Card()
-    card3 = new Card()
+    card1 = new UnitCard()
+    card2 = new UnitCard()
+    card3 = new UnitCard()
     deck = new Deck(new Array(card1,card2))
   }
 
