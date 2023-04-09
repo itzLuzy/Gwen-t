@@ -4,7 +4,7 @@ import munit.FunSuite
 
 class PlayerTest extends FunSuite{
   var name: String = null
-  var section: Section = null
+  var section: Int = null
   var gems: Int = null
   var deck: Deck = null
   var hand : Hand = null
@@ -12,7 +12,7 @@ class PlayerTest extends FunSuite{
 
   override def beforeEach(context: BeforeEach): Unit ={
     name = "Gyro"
-    section = new Section()
+    section = 0
     gems = 2
     deck = new Deck()
     hand = new Hand()
