@@ -34,24 +34,24 @@ class CardSet(private val t: String) extends isCardSet{
   }
 
   def add(card: Card): Unit = {
-    if(n<25){
+    if(n<len){
       a(n) = card
       n += 1
     }
     else{
-      println("Deck is already full")
+      println(t + " is already full")
     }
   }
 
   def add(b: Array[Card]): Unit = {
-    if (b.length < (25-n)) {
-      for(i <- 0 to b.length){
+    if (b.length <= (len-n)) {
+      for(i <- b.indices){
         a(n) = b(i)
         n += 1
       }
     }
     else {
-      println("Array doesn't fit in the deck")
+      println("Array doesn't fit in the " + t)
     }
   }
 
@@ -59,8 +59,8 @@ class CardSet(private val t: String) extends isCardSet{
     var i: Int = 0
     var b: Boolean = false
     while(i<=n && !b){
-      if(a(i).equals(card)){
-        if(i<n){
+      if(i<n){
+        if(a(i).equals(card)){
           for(j <- i until n){
             a(j)=a(j+1)
           }
@@ -71,7 +71,7 @@ class CardSet(private val t: String) extends isCardSet{
       }
       i+=1
     }
-    if(!b){println("Card was not found on the deck")}
+    if(!b){println("Card was not found on the " + t)}
   }
 
   override def equals(obj: Any): Boolean = {

@@ -26,8 +26,8 @@ class CardSetTest extends FunSuite {
     card6 = new UnitCard("Wekapipo", "Range", 8)
     deck = new CardSet("Deck")
     hand = new CardSet("Hand")
-    deck2 = new CardSet("Deck", Array(card1,card2))
-    hand2 = new CardSet("Hand", Array(card3,card4))
+    deck2 = new CardSet("Deck", Array(card1, card2))
+    hand2 = new CardSet("Hand", Array(card3, card4))
     deckArray = new Array[Card](23)
     for (i <- deckArray.indices) {
       deckArray(i) = new UnitCard("Minion" + i, "Melee", 2)
@@ -36,69 +36,69 @@ class CardSetTest extends FunSuite {
     for (i <- handArray.indices) {
       handArray(i) = new UnitCard("oMinion" + i, "Melee", 2)
     }
-    
-    test("Can tell if a card is included on the set"){
-      assert(deck2.isIncluded(card1) && deck2.isIncluded(card2), "Cards should've been stated as included on deck")
-      assert(hand2.isIncluded(card3) && deck2.isIncluded(card4), "Cards should've been stated as included on hand")
-      assert(!deck2.isIncluded(card4), "Card shouln't have been stated as included on deck")
-      assert(!hand2.isIncluded(card1), "Card shouln't have been stated as included on hand")
-    }
-    
-    test("Cards can be added to the set one by one") {
-      deck.add(card1)
-      deck.add(card2)
-      hand.add(card3)
-      hand.add(card4)
-      assert(deck.isIncluded(card2), "Second card was not added to the deck")
-      assert(deck.isIncluded(card1), "the adding of a card removed another one")
-      assert(hand.isIncluded(card4), "Second card was not added to the hand")
-      assert(hand.isIncluded(card3), "the adding of a card removed another one")
-    }
+  }
 
-    test("Cards can be added to the set as an array of cards") {
-      deck2.add(deckArray)
-      hand2.add(handArray)
-      assert(deck2.isIncluded(card1), "Adding array of cards deleted a card from the deck")
-      assert(hand2.isIncluded(card3), "Adding array of cards deleted a card from the hand")
-      for (i <- 0 to deckArray.length) {
-        assert(deck2.isIncluded(deckArray(i)), "A card from the array was not added to the deck")
-      }
-      for (i <- 0 to handArray.length) {
-        assert(hand2.isIncluded(handArray(i)), "A card from the array was not added to the hand")
-      }
+  test("Can tell if a card is included on the set") {
+    assert(deck2.isIncluded(card1) && deck2.isIncluded(card2), "Cards should've been stated as included on deck")
+    assert(hand2.isIncluded(card3) && hand2.isIncluded(card4), "Cards should've been stated as included on hand")
+    assert(!deck2.isIncluded(card4), "Card shouln't have been stated as included on deck")
+    assert(!hand2.isIncluded(card1), "Card shouln't have been stated as included on hand")
+  }
+
+  test("Cards can be added to the set one by one") {
+    deck.add(card1)
+    deck.add(card2)
+    hand.add(card3)
+    hand.add(card4)
+    assert(deck.isIncluded(card2), "Second card was not added to the deck")
+    assert(deck.isIncluded(card1), "the adding of a card removed another one")
+    assert(hand.isIncluded(card4), "Second card was not added to the hand")
+    assert(hand.isIncluded(card3), "the adding of a card removed another one")
+  }
+
+  test("Cards can be added to the set as an array of cards") {
+    deck2.add(deckArray)
+    hand2.add(handArray)
+    assert(deck2.isIncluded(card1), "Adding array of cards deleted a card from the deck")
+    assert(hand2.isIncluded(card3), "Adding array of cards deleted a card from the hand")
+    for (i <- deckArray.indices) {
+      assert(deck2.isIncluded(deckArray(i)), "A card from the array was not added to the deck")
     }
-    
-    test("If a set is full, cards should not be added"){
-      deck2.add(deckArray)
-      deck2.add(card5)
-      hand2.add(handArray)
-      hand2.add(card6)
-      assert(!deck2.isIncluded(card5), "A card was included when the deck was full")
-      assert(!hand2.isIncluded(card6), "A card was included when the hand was full")
-    }
-    
-    test("If an array doesn't fit, it should not be added"){
-      deck2.add(card5)
-      deck2.add(deckArray)
-      hand2.add(card6)
-      hand2.add(handArray)
-      for (i <- 0 to deckArray.length) {
-        assert(!deck2.isIncluded(deckArray(i)), "A card from the array was added to the deck when full")
-      }
-      for (i <- 0 to handArray.length) {
-        assert(hand2.isIncluded(handArray(i)), "A card from the array was added to the hand when full")
-      }
-    }
-    
-    test("A card can be discarded from the set") {
-      deck2.discard(card1)
-      hand2.discard(card3)
-      assert(!deck2.isIncluded(card1), "The card didn't got removed from deck")
-      assert(deck2.isIncluded(card2), "Removed the wrong card from deck")
-      assert(!hand2.isIncluded(card3), "The card didn't got removed from hand")
-      assert(hand2.isIncluded(card4), "Removed the wrong card from hand")
-      
+    for (i <- handArray.indices) {
+      assert(hand2.isIncluded(handArray(i)), "A card from the array was not added to the hand")
     }
   }
-}  
+
+  test("If a set is full, cards should not be added") {
+    deck2.add(deckArray)
+    deck2.add(card5)
+    hand2.add(handArray)
+    hand2.add(card6)
+    assert(!deck2.isIncluded(card5), "A card was included when the deck was full")
+    assert(!hand2.isIncluded(card6), "A card was included when the hand was full")
+  }
+
+  test("If an array doesn't fit, it should not be added") {
+    deck2.add(card5)
+    deck2.add(deckArray)
+    hand2.add(card6)
+    hand2.add(handArray)
+    for (i <- deckArray.indices) {
+      assert(!deck2.isIncluded(deckArray(i)), "A card from the array was added to the deck when full")
+    }
+    for (i <- handArray.indices) {
+      assert(!hand2.isIncluded(handArray(i)), "A card from the array was added to the hand when full")
+    }
+  }
+
+  test("A card can be discarded from the set") {
+    deck2.discard(card1)
+    hand2.discard(card3)
+    assert(!deck2.isIncluded(card1), "The card didn't got removed from deck")
+    assert(deck2.isIncluded(card2), "Removed the wrong card from deck")
+    assert(!hand2.isIncluded(card3), "The card didn't got removed from hand")
+    assert(hand2.isIncluded(card4), "Removed the wrong card from hand")
+  }
+}
+  
   
