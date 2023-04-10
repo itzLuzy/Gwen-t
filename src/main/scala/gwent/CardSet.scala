@@ -2,7 +2,7 @@ package cl.uchile.dcc
 package gwent
 
 class CardSet(private val t: String) extends isCardSet{
-  private var len: Int = 0
+  private var len: Int = 25
   if(t.equals("Hand")){
     len = 10
   }
@@ -32,7 +32,25 @@ class CardSet(private val t: String) extends isCardSet{
     }
     r
   }
-
+  def play(card: Card): Unit = {
+    if (t == "Hand") {
+      card.play()
+      this.remove(card)
+    }
+    else {
+      println("Cannot play card from deck")
+    }
+  }
+    
+  def draw(card: Card): Unit = {
+    if (t == "Deck") {
+      card.draw()
+      this.remove(card)
+    }
+    else {
+      this.add(card)
+    }
+  }
   def add(card: Card): Unit = {
     if(n<len){
       a(n) = card
@@ -54,8 +72,9 @@ class CardSet(private val t: String) extends isCardSet{
       println("Array doesn't fit in the " + t)
     }
   }
-
-  def discard(card: Card): Unit = {
+    
+  
+  def remove(card: Card): Unit = {
     var i: Int = 0
     var b: Boolean = false
     while(i<=n && !b){

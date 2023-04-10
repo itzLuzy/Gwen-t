@@ -92,8 +92,8 @@ class CardSetTest extends FunSuite {
   }
 
   test("A card can be discarded from the set") {
-    deck2.discard(card1)
-    hand2.discard(card3)
+    deck2.remove(card1)
+    hand2.remove(card3)
     assert(!deck2.isIncluded(card1), "The card didn't got removed from deck")
     assert(deck2.isIncluded(card2), "Removed the wrong card from deck")
     assert(!hand2.isIncluded(card3), "The card didn't got removed from hand")
