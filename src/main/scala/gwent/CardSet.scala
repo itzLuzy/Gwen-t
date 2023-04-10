@@ -73,4 +73,18 @@ class CardSet(val t: String) extends isCardSet{
     }
     if(!b){println("Card was not found on the deck")}
   }
+
+  override def equals(obj: Any): Boolean = {
+    var r: Boolean = false
+    if (obj.isInstanceOf[CardSet]){
+      val that = obj.asInstanceOf[CardSet]
+      if(that.getType == this.getType){
+        r = true
+        for(i <- that.a.indices){
+          if (!that.a(i).equals(this.a(i))){r = false}
+        }
+      }
+    }
+    r
+  }
 }

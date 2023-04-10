@@ -16,15 +16,15 @@ class PlayerTest extends FunSuite{
     gems = 2
     deck = new CardSet("Deck")
     hand = new CardSet("Hand")
-    player = new Player("Gyro")
+    player = new Player("Gyro", 1)
   }
 
   test("Player has well defined attributes"){
     assertEquals(player.name, name)
     assertEquals(player.section, section)
     assertEquals(player.gems, gems)
-    assertEquals(player.getDeck(), deck)
-    assertEquals(player.getHand(), hand)
+    assertEquals(player.getDeck, deck)
+    assertEquals(player.getHand, hand)
   }
 
   test("When the Player plays a card, it is no longer in their hand"){
