@@ -4,18 +4,18 @@ import munit.FunSuite
 
 class PlayerTest extends FunSuite{
   var name: String = null
-  var section: Int = null
-  var gems: Int = null
-  var deck: Deck = null
-  var hand : Hand = null
+  var section: Int = 0
+  var gems: Int = 0
+  var deck: CardSet = null
+  var hand : CardSet = null
   var player: Player = null
 
   override def beforeEach(context: BeforeEach): Unit ={
     name = "Gyro"
     section = 0
     gems = 2
-    deck = new Deck()
-    hand = new Hand()
+    deck = new CardSet("Deck")
+    hand = new CardSet("Hand")
     player = new Player("Gyro")
   }
 
