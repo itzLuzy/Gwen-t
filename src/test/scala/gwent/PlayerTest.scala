@@ -12,7 +12,7 @@ class PlayerTest extends FunSuite{
 
   override def beforeEach(context: BeforeEach): Unit ={
     name = "Gyro"
-    section = 0
+    section = 1
     gems = 2
     deck = new CardSet("Deck")
     hand = new CardSet("Hand")
@@ -20,11 +20,11 @@ class PlayerTest extends FunSuite{
   }
 
   test("Player has well defined attributes"){
-    assertEquals(player.name, name)
-    assertEquals(player.section, section)
-    assertEquals(player.gems, gems)
-    assertEquals(player.getDeck, deck)
-    assertEquals(player.getHand, hand)
+    assertEquals(player.name, name, "name is not well defined")
+    assertEquals(player.section, section, "section is not well defined")
+    assertEquals(player.gems, gems, "gems is not well defined")
+    assertEquals(player.getDeck, deck, "deck is not well defined")
+    assertEquals(player.getHand, hand, "hand is not well defined")
   }
 
   test("When the Player plays a card, it is no longer in their hand"){

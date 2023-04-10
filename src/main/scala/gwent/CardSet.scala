@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 
-class CardSet(val t: String) extends isCardSet{
+class CardSet(private val t: String) extends isCardSet{
   private var len: Int = 0
   if(t.equals("Hand")){
     len = 10
@@ -78,12 +78,9 @@ class CardSet(val t: String) extends isCardSet{
     var r: Boolean = false
     if (obj.isInstanceOf[CardSet]){
       val that = obj.asInstanceOf[CardSet]
-      if(that.getType == this.getType){
+      if(that.getType == this.getType && that.a.sameElements(this.a)){
         r = true
-        for(i <- that.a.indices){
-          if (!that.a(i).equals(this.a(i))){r = false}
         }
-      }
     }
     r
   }
