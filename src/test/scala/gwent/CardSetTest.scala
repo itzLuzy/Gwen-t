@@ -18,7 +18,7 @@ class CardSetTest extends FunSuite {
 
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card1 = new UnitCard("Johhny", "Range", 10)
+    card1 = new UnitCard("Johnny", "Range", 10)
     card2 = new UnitCard("Diego", "Siege", 7)
     card3 = new UnitCard("Funny", "Melee", 9)
     card4 = new UnitCard("Ringo", "Melee", 6)
@@ -41,8 +41,8 @@ class CardSetTest extends FunSuite {
   test("Can tell if a card is included on the set") {
     assert(deck2.isIncluded(card1) && deck2.isIncluded(card2), "Cards should've been stated as included on deck")
     assert(hand2.isIncluded(card3) && hand2.isIncluded(card4), "Cards should've been stated as included on hand")
-    assert(!deck2.isIncluded(card4), "Card shouln't have been stated as included on deck")
-    assert(!hand2.isIncluded(card1), "Card shouln't have been stated as included on hand")
+    assert(!deck2.isIncluded(card4), "Card shouldn't have been stated as included on deck")
+    assert(!hand2.isIncluded(card1), "Card shouldn't have been stated as included on hand")
   }
 
   test("Cards can be added to the set one by one") {
