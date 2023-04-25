@@ -1,7 +1,9 @@
 package cl.uchile.dcc
 package gwent
 
-class WeatherCard(val name: String, val skill: String, var onHand: Boolean = false) extends Card{
+class WeatherCard(val name: String, val skill: String,
+                  var onHand: Boolean = false) extends Card{
+
   def play(): Unit = {
     if (onHand){
       println("The Weather card '" + name + "' was played")

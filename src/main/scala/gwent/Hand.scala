@@ -1,18 +1,17 @@
 package cl.uchile.dcc
 package gwent
 
-import scala.collection.mutable.ArrayBuffer
 
-class Hand extends AbstractCardSet{
-  private var len: Int = 10
-  private val a: ArrayBuffer[Card] = new ArrayBuffer[Card](len)
-  private var n: Int = 0
 
-  def this(b: ArrayBuffer[Card]) = {
+class Hand() extends AbstractCardSet{
+  override protected val len = 10
+  a = new Array[Card](len)
+
+  def this(b: Array[Card]) = {
     this()
     if (b.length <= len) {
       for (i <- b.indices) {
-        a.append(b(i))
+        a(i) = b(i)
         n += 1
       }
     }

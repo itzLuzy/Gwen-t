@@ -2,12 +2,14 @@ package cl.uchile.dcc
 package gwent
 import munit.FunSuite
 
+import scala.collection.mutable.ArrayBuffer
+
 class PlayerTest extends FunSuite{
   var name: String = null
   var section: Int = 0
   var gems: Int = 0
-  var deck: CardSet = null
-  var hand : CardSet = null
+  var deck: Deck = null
+  var hand : Hand = null
   var card1: UnitCard = null
   var card2: UnitCard = null
   var card3: UnitCard = null
@@ -20,8 +22,8 @@ class PlayerTest extends FunSuite{
     card1 = new UnitCard("Johnny", "Range", 10)
     card2 = new UnitCard("Funny", "Melee", 9)
     card3 = new UnitCard("HP", "Sage", 5)
-    deck = new CardSet("Deck", Array(card1,card2))
-    hand = new CardSet("Hand", Array(card3))
+    deck = new Deck(Array(card1,card2))
+    hand = new Hand(Array(card3))
     player = new Player("Gyro", 1)
     player.hand = hand
     player.deck = deck

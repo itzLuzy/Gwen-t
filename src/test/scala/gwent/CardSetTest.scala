@@ -3,10 +3,10 @@ package gwent
 import munit.FunSuite
 
 class CardSetTest extends FunSuite {
-  var deck: CardSet = null
-  var deck2: CardSet = null
-  var hand: CardSet = null
-  var hand2: CardSet = null
+  var deck: Deck = null
+  var deck2: Deck = null
+  var hand: Hand = null
+  var hand2: Hand = null
   var card1: UnitCard = null
   var card2: UnitCard = null
   var card3: UnitCard = null
@@ -24,10 +24,10 @@ class CardSetTest extends FunSuite {
     card4 = new UnitCard("Ringo", "Melee", 6)
     card5 = new UnitCard("Lucy", "Siege", 7)
     card6 = new UnitCard("Wekapipo", "Range", 8)
-    deck = new CardSet("Deck")
-    hand = new CardSet("Hand")
-    deck2 = new CardSet("Deck", Array(card1, card2))
-    hand2 = new CardSet("Hand", Array(card3, card4))
+    deck = new Deck()
+    hand = new Hand()
+    deck2 = new Deck(Array(card1, card2))
+    hand2 = new Hand(Array(card3, card4))
     deckArray = new Array[Card](23)
     for (i <- deckArray.indices) {
       deckArray(i) = new UnitCard("Minion" + i, "Melee", 2)
@@ -91,7 +91,7 @@ class CardSetTest extends FunSuite {
     }
   }
 
-  test("A card can be discarded from the set") {
+  test("A card can be removed from the set") {
     deck2.remove(card1)
     hand2.remove(card3)
     assert(!deck2.isIncluded(card1), "The card didn't got removed from deck")

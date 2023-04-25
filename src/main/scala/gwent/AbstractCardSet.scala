@@ -1,22 +1,11 @@
 package cl.uchile.dcc
 package gwent
 
-import scala.collection.mutable.ArrayBuffer
 
-abstract class AbstractCardSet extends isCardSet with Equals {
-  private val len = 25
-  private val a: ArrayBuffer[Card] = new ArrayBuffer[Card](len)
-  private var n: Int = 0
-
-  def this(b: ArrayBuffer[Card]) = {
-    this()
-    if (b.length<=len){
-      for (i <- b.indices) {
-        a(i) = b(i)
-        n += 1
-      } 
-    }
-  }  
+abstract class AbstractCardSet() extends isCardSet with Equals {
+  protected val len: Int  = 25
+  protected var a: Array[Card] = new Array[Card](len)
+  protected var n: Int = 0
   
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
@@ -26,6 +15,10 @@ abstract class AbstractCardSet extends isCardSet with Equals {
       i += 1
     }
     r
+  }
+  
+  def getArray: Array[Card] = {
+    a
   }
 
   
@@ -39,7 +32,7 @@ abstract class AbstractCardSet extends isCardSet with Equals {
     }
   }
 
-  def add(b: ArrayBuffer[Card]): Unit = {
+  def add(b: Array[Card]): Unit = {
     if (b.length <= (len - n)) {
       for (i <- b.indices) {
         a(n) = b(i)
@@ -61,9 +54,9 @@ abstract class AbstractCardSet extends isCardSet with Equals {
             a(j) = a(j + 1)
           }
         }
+        n -= 1
         a(n) = null
         b = true
-        n -= 1
       }
       i += 1
     }
