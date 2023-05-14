@@ -29,7 +29,8 @@ class Hand() extends AbstractCardSet{
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[Hand]) {
       super.equals(obj)
-    } else {
+    }
+    else {
       false
     }
   }

@@ -6,7 +6,9 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   protected val len: Int  = 25
   protected var a: Array[Card] = new Array[Card](len)
   protected var n: Int = 0
+  def getArray: Array[Card] = a
   
+  def getN: Int = n
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
     var r: Boolean = false
@@ -16,11 +18,6 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
     }
     r
   }
-  
-  def getArray: Array[Card] = {
-    a
-  }
-
   
   def add(card: Card): Unit = {
     if (n < len) {
@@ -72,6 +69,8 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
 
       (this eq that) || (that.getArray.sameElements(this.getArray))
     }
-    else {false}
+    else {
+      false
+    }
   }
 }

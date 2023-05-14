@@ -1,12 +1,15 @@
 package cl.uchile.dcc
 package gwent
 
-class UnitCard(val name: String, val classification: String, val str: Int,
+class UnitCard(private val name: String, private val classification: String, private val str: Int,
                var onHand: Boolean = false) extends Card{
   
-  def getName: String = {
-    name
-  }
+  def getName: String = name
+  
+  def getClassification: String = classification
+  
+  def getStr: Int = str
+  
   def play(): Unit = {
     if (onHand) {
       println("The Unit card '" + name + "' was played")
@@ -19,19 +22,21 @@ class UnitCard(val name: String, val classification: String, val str: Int,
 
   def draw(): Unit = {
     if (!onHand) {
-      println("The Unit card '" + name + "' was drawed")
+      println("The Unit card '" + name + "' was drawn")
       onHand = true
     }
     else {
-      println("Card already on the hand")
+      println("Card is already on hand")
     }
   }
 
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[UnitCard]){
       val that = obj.asInstanceOf[UnitCard]
-      (that.name == this.name) && (that.classification == this.classification) && (that.str == this.str)
+      (this eq that) || (that.name == this.name) && (that.classification == this.classification) && (that.str == this.str)
     }
-    else { false }
+    else { 
+      false 
+    }
   }
 }

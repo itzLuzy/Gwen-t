@@ -24,28 +24,26 @@ class PlayerTest extends FunSuite{
     card3 = new UnitCard("HP", "Sage", 5)
     deck = new Deck(Array(card1,card2))
     hand = new Hand(Array(card3))
-    player = new Player("Gyro", 1)
-    player.hand = hand
-    player.deck = deck
+    player = new Player("Gyro", 1, deck, hand)
   }
 
   test("Player has well defined attributes"){
-    assertEquals(player.name, name, "name is not well defined")
-    assertEquals(player.section, section, "section is not well defined")
-    assertEquals(player.gems, gems, "gems is not well defined")
-    assertEquals(player.deck, deck, "deck is not well defined")
-    assertEquals(player.hand, hand, "hand is not well defined")
+    assertEquals(player.getName, name, "name is not well defined")
+    assertEquals(player.getSection, section, "section is not well defined")
+    assertEquals(player.getGems, gems, "gems is not well defined")
+    assertEquals(player.getDeck, deck, "deck is not well defined")
+    assertEquals(player.getHand, hand, "hand is not well defined")
   }
 
   test("When the Player plays a card, it is no longer in their hand"){
     player.playCard(card3)
-    assert(!player.hand.isIncluded(card3))
+    assert(!player.getHand.isIncluded(card3))
   }
 
   test("When the Player draws a card, it goes from their deck to their hand"){
     player.drawCard(card2)
-    assert(player.hand.isIncluded(card2), "Card was not added to the hand")
-    assert(!player.deck.isIncluded(card2), "Card was not removed from the deck")
+    assert(player.getHand.isIncluded(card2), "Card was not added to the hand")
+    assert(!player.getDeck.isIncluded(card2), "Card was not removed from the deck")
   }
 
 }

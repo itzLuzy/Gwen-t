@@ -1,9 +1,13 @@
 package cl.uchile.dcc
 package gwent
 
-class WeatherCard(val name: String, val skill: String,
+class WeatherCard(private val name: String, private val skill: String,
                   var onHand: Boolean = false) extends Card{
 
+  def getName: String = name
+
+  def getSkill: String = skill
+  
   def play(): Unit = {
     if (onHand){
       println("The Weather card '" + name + "' was played")
@@ -16,22 +20,22 @@ class WeatherCard(val name: String, val skill: String,
 
   def draw(): Unit = {
     if (!onHand){
-      println("The Weather card '" + name + "' was drawed")
+      println("The Weather card '" + name + "' was drawn")
       onHand = true
     }
     else{
-      println("Card already on the hand")
+      println("Card is already on hand")
     }
   }
-  
+
   override def equals(obj: Any): Boolean = {
-    var r: Boolean = false
     if (obj.isInstanceOf[WeatherCard]) {
       val that = obj.asInstanceOf[WeatherCard]
-      if (that.name == this.name && that.skill == this.skill) {
-        r = true
-      }
+      (this eq that) || (that.name == this.name && that.skill == this.skill)
     }
-    r
+    else {
+      false
+    }
   }
 }
+//if (that.name == this.name && that.skill == this.skill)
