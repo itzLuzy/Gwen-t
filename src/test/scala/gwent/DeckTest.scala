@@ -13,12 +13,9 @@ class DeckTest extends FunSuite {
     }
     deck = Deck(deckArray)
   }
-  test("When a deck is shuffled, the cards are the still on the deck"){
-    var deck2 = deck
-    var deckArray2 = deckArray
+  test("Shuffle works"){
+    var deck2 = Deck(deckArray)
     deck2.shuffle()
-    for (i <- deckArray.indices) {
-      assert(deck2.isIncluded(deckArray2(i)))
-    }
+    assertNotEquals(deck,deck2)
   }
 }

@@ -18,7 +18,8 @@ class Deck() extends AbstractCardSet{
   }
 
   def shuffle(): Unit = {
-    Random.shuffle(a)
+    val x = this.a.toSeq
+    this.a = Random.shuffle(x).toArray
   }
 
   override def canEqual(that: Any): Boolean = {
@@ -26,9 +27,10 @@ class Deck() extends AbstractCardSet{
   }
 
   override def equals(obj: Any): Boolean = {
-    if (obj.isInstanceOf[Hand]) {
+    if (obj.isInstanceOf[Deck]) {
       super.equals(obj)
-    } else {
+    } 
+    else {
       false
     }
   }

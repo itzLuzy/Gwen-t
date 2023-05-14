@@ -66,12 +66,11 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   }
 
   override def equals(obj: Any): Boolean = {
-    var r: Boolean = false
     if (obj.isInstanceOf[AbstractCardSet]) {
       
       val that = obj.asInstanceOf[AbstractCardSet]
 
-      (this eq that) || (that.a.equals(this.a))
+      (this eq that) || (that.getArray.sameElements(this.getArray))
     }
     else {false}
   }
