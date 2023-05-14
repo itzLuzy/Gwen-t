@@ -14,10 +14,10 @@ class Player(private val name: String, private val section: Int,
   def getDeck: Deck = deck
   
   def getHand: Hand = hand
-  def playCard(card: UnitCard): Unit = {
+  def playCard(card: Card): Unit = {
     hand.play(card)
   }
-  def drawCard(card: UnitCard): Unit = {
+  def drawCard(card: Card): Unit = {
     deck.remove(card)
     hand.add(card)
   }
