@@ -1,10 +1,10 @@
 package cl.uchile.dcc
-package gwent
+package gwent.card_sets
 
-import scala.util.Random
+import gwent.cards.Card
 
-class Deck() extends AbstractCardSet{
-  override protected val len = 25
+class Hand() extends AbstractCardSet{
+  override protected val len = 10
   a = new Array[Card](len)
 
   def this(b: Array[Card]) = {
@@ -17,21 +17,23 @@ class Deck() extends AbstractCardSet{
     }
   }
 
-  def shuffle(): Unit = {
-    val x = this.a.toSeq
-    this.a = Random.shuffle(x).toArray
+  def play(card: Card): Unit = {
+    card.play()
+    this.remove(card)
   }
 
   override def canEqual(that: Any): Boolean = {
     that.isInstanceOf[Hand]
   }
-
+  
   override def equals(obj: Any): Boolean = {
-    if (obj.isInstanceOf[Deck]) {
+    if (obj.isInstanceOf[Hand]) {
       super.equals(obj)
-    } 
+    }
     else {
       false
     }
   }
+  
+
 }

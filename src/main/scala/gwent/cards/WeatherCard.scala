@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent
+package gwent.cards
 
 class WeatherCard(private val name: String, private val skill: String,
                   var onHand: Boolean = false) extends Card{
@@ -38,4 +38,3 @@ class WeatherCard(private val name: String, private val skill: String,
     }
   }
 }
-//if (that.name == this.name && that.skill == this.skill)

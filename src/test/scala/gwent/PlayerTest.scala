@@ -1,5 +1,8 @@
 package cl.uchile.dcc
 package gwent
+import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
+import cl.uchile.dcc.gwent.cards.UnitCard
+import cl.uchile.dcc.gwent.player.Player
 import munit.FunSuite
 
 import scala.collection.mutable.ArrayBuffer

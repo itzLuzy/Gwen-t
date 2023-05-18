@@ -1,5 +1,8 @@
 package cl.uchile.dcc
-package gwent
+package gwent.player
+
+import gwent.card_sets.{Deck, Hand}
+import gwent.cards.Card
 
 class Player(private val name: String, private val section: Int, 
              private val deck: Deck, private val hand: Hand) extends isPlayer {

@@ -1,5 +1,7 @@
 package cl.uchile.dcc
 package gwent
+import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
+import cl.uchile.dcc.gwent.cards.{Card, UnitCard}
 import munit.FunSuite
 
 class CardSetTest extends FunSuite {

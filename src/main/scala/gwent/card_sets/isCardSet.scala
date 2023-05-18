@@ -1,5 +1,7 @@
 package cl.uchile.dcc
-package gwent
+package gwent.card_sets
+
+import gwent.cards.Card
 
 trait isCardSet {
   def isIncluded(card:Card): Boolean

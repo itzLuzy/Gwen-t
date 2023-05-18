@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent
+package gwent.cards
 
 class UnitCard(private val name: String, private val classification: String, private val str: Int,
                var onHand: Boolean = false) extends Card{

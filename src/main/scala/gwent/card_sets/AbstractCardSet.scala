@@ -1,5 +1,7 @@
 package cl.uchile.dcc
-package gwent
+package gwent.card_sets
+
+import gwent.cards.Card
 
 
 abstract class AbstractCardSet() extends isCardSet with Equals {
@@ -7,7 +9,7 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   protected var a: Array[Card] = new Array[Card](len)
   protected var n: Int = 0
   def getArray: Array[Card] = a
-  
+
   def getN: Int = n
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
@@ -18,7 +20,7 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
     }
     r
   }
-  
+
   def add(card: Card): Unit = {
     if (n < len) {
       a(n) = card
