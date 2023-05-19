@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
-import cl.uchile.dcc.gwent.cards.{Card, AbstractUnitCard}
+import cl.uchile.dcc.gwent.cards.{AbstractUnitCard, Card, CloseCombatCard, RangedCombatCard, SiegeCombatCard}
 import munit.FunSuite
 
 class CardSetTest extends FunSuite {
@@ -20,23 +20,23 @@ class CardSetTest extends FunSuite {
 
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card1 = new AbstractUnitCard("Johnny", "Range", 10)
-    card2 = new AbstractUnitCard("Diego", "Siege", 7)
-    card3 = new AbstractUnitCard("Funny", "Melee", 9)
-    card4 = new AbstractUnitCard("Ringo", "Melee", 6)
-    card5 = new AbstractUnitCard("Lucy", "Siege", 7)
-    card6 = new AbstractUnitCard("Wekapipo", "Range", 8)
+    card1 = new RangedCombatCard("Johnny",10)
+    card2 = new SiegeCombatCard("Diego", 7)
+    card3 = new CloseCombatCard("Funny", 9)
+    card4 = new CloseCombatCard("Ringo", 6)
+    card5 = new SiegeCombatCard("Lucy", 7)
+    card6 = new RangedCombatCard("Wekapipo", 8)
     deck = new Deck()
     hand = new Hand()
     deck2 = new Deck(Array(card1, card2))
     hand2 = new Hand(Array(card3, card4))
     deckArray = new Array[Card](23)
     for (i <- deckArray.indices) {
-      deckArray(i) = new AbstractUnitCard("Minion" + i, "Melee", 2)
+      deckArray(i) = new RangedCombatCard("Minion" + i, 2)
     }
     handArray = new Array[Card](8)
     for (i <- handArray.indices) {
-      handArray(i) = new AbstractUnitCard("oMinion" + i, "Melee", 2)
+      handArray(i) = new RangedCombatCard("oMinion" + i, 2)
     }
   }
 

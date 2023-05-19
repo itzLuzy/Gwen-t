@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
-import cl.uchile.dcc.gwent.cards.AbstractUnitCard
+import cl.uchile.dcc.gwent.cards.{AbstractUnitCard, CloseCombatCard, RangedCombatCard, SiegeCombatCard}
 import cl.uchile.dcc.gwent.player.Player
 import munit.FunSuite
 
@@ -22,9 +22,9 @@ class PlayerTest extends FunSuite{
     name = "Gyro"
     section = 1
     gems = 2
-    card1 = new AbstractUnitCard("Johnny", "Range", 10)
-    card2 = new AbstractUnitCard("Funny", "Melee", 9)
-    card3 = new AbstractUnitCard("HP", "Sage", 5)
+    card1 = new RangedCombatCard("Johnny", 10)
+    card2 = new CloseCombatCard("Funny", 9)
+    card3 = new SiegeCombatCard("HP", 5)
     deck = new Deck(Array(card1,card2))
     hand = new Hand(Array(card3))
     player = new Player("Gyro", 1, deck, hand)
