@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
-import cl.uchile.dcc.gwent.cards.{Card, UnitCard}
+import cl.uchile.dcc.gwent.cards.{Card, AbstractUnitCard}
 import munit.FunSuite
 
 class CardSetTest extends FunSuite {
@@ -9,34 +9,34 @@ class CardSetTest extends FunSuite {
   var deck2: Deck = null
   var hand: Hand = null
   var hand2: Hand = null
-  var card1: UnitCard = null
-  var card2: UnitCard = null
-  var card3: UnitCard = null
-  var card4: UnitCard = null
-  var card5: UnitCard = null
-  var card6: UnitCard = null
+  var card1: AbstractUnitCard = null
+  var card2: AbstractUnitCard = null
+  var card3: AbstractUnitCard = null
+  var card4: AbstractUnitCard = null
+  var card5: AbstractUnitCard = null
+  var card6: AbstractUnitCard = null
   var deckArray: Array[Card] = null
   var handArray: Array[Card] = null
 
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card1 = new UnitCard("Johnny", "Range", 10)
-    card2 = new UnitCard("Diego", "Siege", 7)
-    card3 = new UnitCard("Funny", "Melee", 9)
-    card4 = new UnitCard("Ringo", "Melee", 6)
-    card5 = new UnitCard("Lucy", "Siege", 7)
-    card6 = new UnitCard("Wekapipo", "Range", 8)
+    card1 = new AbstractUnitCard("Johnny", "Range", 10)
+    card2 = new AbstractUnitCard("Diego", "Siege", 7)
+    card3 = new AbstractUnitCard("Funny", "Melee", 9)
+    card4 = new AbstractUnitCard("Ringo", "Melee", 6)
+    card5 = new AbstractUnitCard("Lucy", "Siege", 7)
+    card6 = new AbstractUnitCard("Wekapipo", "Range", 8)
     deck = new Deck()
     hand = new Hand()
     deck2 = new Deck(Array(card1, card2))
     hand2 = new Hand(Array(card3, card4))
     deckArray = new Array[Card](23)
     for (i <- deckArray.indices) {
-      deckArray(i) = new UnitCard("Minion" + i, "Melee", 2)
+      deckArray(i) = new AbstractUnitCard("Minion" + i, "Melee", 2)
     }
     handArray = new Array[Card](8)
     for (i <- handArray.indices) {
-      handArray(i) = new UnitCard("oMinion" + i, "Melee", 2)
+      handArray(i) = new AbstractUnitCard("oMinion" + i, "Melee", 2)
     }
   }
 

@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
-import cl.uchile.dcc.gwent.cards.UnitCard
+import cl.uchile.dcc.gwent.cards.AbstractUnitCard
 import cl.uchile.dcc.gwent.player.Player
 import munit.FunSuite
 
@@ -13,18 +13,18 @@ class PlayerTest extends FunSuite{
   var gems: Int = 0
   var deck: Deck = null
   var hand : Hand = null
-  var card1: UnitCard = null
-  var card2: UnitCard = null
-  var card3: UnitCard = null
+  var card1: AbstractUnitCard = null
+  var card2: AbstractUnitCard = null
+  var card3: AbstractUnitCard = null
   var player: Player = null
 
   override def beforeEach(context: BeforeEach): Unit = {
     name = "Gyro"
     section = 1
     gems = 2
-    card1 = new UnitCard("Johnny", "Range", 10)
-    card2 = new UnitCard("Funny", "Melee", 9)
-    card3 = new UnitCard("HP", "Sage", 5)
+    card1 = new AbstractUnitCard("Johnny", "Range", 10)
+    card2 = new AbstractUnitCard("Funny", "Melee", 9)
+    card3 = new AbstractUnitCard("HP", "Sage", 5)
     deck = new Deck(Array(card1,card2))
     hand = new Hand(Array(card3))
     player = new Player("Gyro", 1, deck, hand)

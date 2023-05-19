@@ -1,14 +1,14 @@
 package cl.uchile.dcc
 package gwent
-import cl.uchile.dcc.gwent.cards.{UnitCard, WeatherCard}
+import cl.uchile.dcc.gwent.cards.{AbstractUnitCard, WeatherCard}
 import munit.FunSuite
 
 class CardTest extends FunSuite {
-  var card1: UnitCard = null
+  var card1: AbstractUnitCard = null
   var card2: WeatherCard = null
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card1 = new UnitCard("Pucci", "Range", 10, onHand = true)
+    card1 = new AbstractUnitCard("Pucci", "Range", 10, onHand = true)
     card2 = new WeatherCard("WeatherReport","HeavyWeather", onHand = false)
   }
   
