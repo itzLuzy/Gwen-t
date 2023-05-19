@@ -4,15 +4,15 @@ package gwent.card_sets
 import gwent.cards.Card
 
 class Hand() extends AbstractCardSet{
-  override protected val len = 10
-  a = new Array[Card](len)
+  override protected val length = 10
+  cardArray = new Array[Card](length)
 
   def this(b: Array[Card]) = {
     this()
-    if (b.length <= len) {
+    if (b.length <= length) {
       for (i <- b.indices) {
-        a(i) = b(i)
-        n += 1
+        cardArray(i) = b(i)
+        numberOfCards += 1
       }
     }
   }

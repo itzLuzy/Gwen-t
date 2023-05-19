@@ -6,22 +6,22 @@ import gwent.cards.Card
 import scala.util.Random
 
 class Deck() extends AbstractCardSet{
-  override protected val len = 25
-  a = new Array[Card](len)
+  override protected val length = 25
+  cardArray = new Array[Card](length)
 
-  def this(b: Array[Card]) = {
+  def this(array: Array[Card]) = {
     this()
-    if (b.length <= len) {
-      for (i <- b.indices) {
-        a(i) = b(i)
-        n += 1
+    if (array.length <= length) {
+      for (i <- array.indices) {
+        cardArray(i) = array(i)
+        numberOfCards += 1
       }
     }
   }
 
   def shuffle(): Unit = {
-    val x = this.a.toSeq
-    this.a = Random.shuffle(x).toArray
+    val x = this.cardArray.toSeq
+    this.cardArray = Random.shuffle(x).toArray
   }
 
   override def canEqual(that: Any): Boolean = {

@@ -5,26 +5,26 @@ import gwent.cards.Card
 
 
 abstract class AbstractCardSet() extends isCardSet with Equals {
-  protected val len: Int  = 25
-  protected var a: Array[Card] = new Array[Card](len)
-  protected var n: Int = 0
-  def getArray: Array[Card] = a
+  protected val length: Int  = 25
+  protected var cardArray: Array[Card] = new Array[Card](length)
+  protected var numberOfCards: Int = 0
+  def getArray: Array[Card] = cardArray
 
-  def getN: Int = n
+  def getN: Int = numberOfCards
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
     var r: Boolean = false
-    while (i < n && ! r) {
-      if (a(i).equals(card)) {r = true}
+    while (i < numberOfCards && ! r) {
+      if (cardArray(i).equals(card)) {r = true}
       i += 1
     }
     r
   }
 
   def add(card: Card): Unit = {
-    if (n < len) {
-      a(n) = card
-      n += 1
+    if (numberOfCards < length) {
+      cardArray(numberOfCards) = card
+      numberOfCards += 1
     }
     else {
       println("Card Set is already full")
@@ -32,10 +32,10 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   }
 
   def add(b: Array[Card]): Unit = {
-    if (b.length <= (len - n)) {
+    if (b.length <= (length - numberOfCards)) {
       for (i <- b.indices) {
-        a(n) = b(i)
-        n += 1
+        cardArray(numberOfCards) = b(i)
+        numberOfCards += 1
       }
     }
     else {
@@ -46,15 +46,15 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   def remove(card: Card): Unit = {
     var i: Int = 0
     var b: Boolean = false
-    while (i <= n && !b) {
-      if (i < n) {
-        if (a(i).equals(card)) {
-          for (j <- i until n) {
-            a(j) = a(j + 1)
+    while (i <= numberOfCards && !b) {
+      if (i < numberOfCards) {
+        if (cardArray(i).equals(card)) {
+          for (j <- i until numberOfCards) {
+            cardArray(j) = cardArray(j + 1)
           }
         }
-        n -= 1
-        a(n) = null
+        numberOfCards -= 1
+        cardArray(numberOfCards) = null
         b = true
       }
       i += 1
