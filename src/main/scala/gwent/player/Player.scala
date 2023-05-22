@@ -9,15 +9,17 @@ import java.util.Objects
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
 
-class Player (private val _name: String, private var board: Board, private var _deck: ListBuffer[Card],
+class Player (private val _name: String, private var _board: Board, private var _deck: ListBuffer[Card],
               private var _hand: ListBuffer[Card], private var _gems: Int = 2) extends isPlayer {
 
-  private var _section: Option[Section] = board.assignSection(this)
+  private var _section: Option[Section] = _board.assignSection(this)
 
   if (_gems < 0) {
     _gems = 1
   }
   def name: String = _name
+  
+  def board: Board = _board
   
   def gems: Int = _gems
   
@@ -35,7 +37,7 @@ class Player (private val _name: String, private var board: Board, private var _
   
   def playCard(card: Card): Unit = {
     if (_hand.contains(card) && isSectionAssigned) {
-      card.play(board, _section.get)
+      card.play(_board, _section.get)
       _hand -= card
     }
   }
@@ -64,5 +66,5 @@ class Player (private val _name: String, private var board: Board, private var _
     }
   }
 
-  override def hashCode(): Int = Objects.hash(classOf[Player], _name, board)
+  override def hashCode(): Int = Objects.hash(classOf[Player], _name, _board)
 }

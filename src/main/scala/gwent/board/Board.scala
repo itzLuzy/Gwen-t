@@ -8,18 +8,23 @@ import cl.uchile.dcc.gwent.player.Player
 import scala.collection.mutable.ListBuffer
 
 class Board extends isBoard {
-  private val section1: Section = Section(1)
-  private val section2: Section = Section(2)
-  private val weatherSection: ListBuffer[WeatherCard] = new ListBuffer[WeatherCard]
+  private val _section1: Section = Section(1)
+  private val _section2: Section = Section(2)
+  private val _weatherSection: ListBuffer[WeatherCard] = new ListBuffer[WeatherCard]
+  
+  def section1: Section = _section1
+  def section2: Section = _section2
+  def weatherSection: List[WeatherCard] = _weatherSection.toList
+  
   
   def assignSection(player: Player): Option[Section] = {
-    if (!section1.isPlayerAssigned) {
-      section1.assignPlayer(player)
-      Some(section1)
+    if (!_section1.isPlayerAssigned) {
+      _section1.assignPlayer(player)
+      Some(_section1)
     }
-    else if (!section2.isPlayerAssigned) {
-      section2.assignPlayer(player)
-      Some(section2)
+    else if (!_section2.isPlayerAssigned) {
+      _section2.assignPlayer(player)
+      Some(_section2)
     }
     else {
       None
@@ -28,7 +33,7 @@ class Board extends isBoard {
   }
 
   def playWeatherCard(card: WeatherCard): Unit = {
-    weatherSection += card
+    _weatherSection += card
   }
 
   def playCloseCombatCard(card: CloseCombatCard, section: Section): Unit = {
