@@ -4,28 +4,37 @@ package gwent.player
 import gwent.card_sets.{Deck, Hand}
 import gwent.cards.Card
 
-class Player(private val name: String, private val section: Int, 
-             private val deck: Deck, private val hand: Hand) extends isPlayer {
+class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
+                     val _deck: Deck, val _hand: Hand) extends isPlayer {
   
-  private var gems: Int = 2
-  def getName: String = name
+  if (_gems < 0) {
+    _gems = 0
+  }
+  def name: String = _name
   
-  def getSection: Int = section
+  def section: Int = _section
   
-  def getGems: Int = gems
+  def gems: Int = _gems
   
-  def getDeck: Deck = deck
+  def deck: Deck = _deck
   
-  def getHand: Hand = hand
+  def hand: Hand = _hand
+
+  def loseGem(): Unit = {
+    if (_gems >= 1) {
+      _gems -= 1
+    }
+  }
+  
   def playCard(card: Card): Unit = {
-    hand.play(card)
+    _hand.play(card)
   }
   def drawCard(): Unit = {
-    hand.add(deck.getArray(0))
-    deck.remove(deck.getArray(0))
+    _hand.add(_deck.getArray(0))
+    _deck.remove(_deck.getArray(0))
   }
   def shuffle(): Unit = {
-    deck.shuffle()
+    _deck.shuffle()
   }
 
   override def equals(obj: Any): Boolean = {
@@ -33,9 +42,9 @@ class Player(private val name: String, private val section: Int,
 
       val that = obj.asInstanceOf[Player]
 
-      (this eq that) || (that.getDeck.equals(this.getDeck) && that.getHand.equals(this.getHand)
-                      && that.getGems.equals(this.getGems) && that.getName.equals(this.getName)
-                      && that.getSection.equals(this.getSection))
+      (this eq that) || (that.deck.equals(this.deck) && that.hand.equals(this.hand)
+                      && that.gems.equals(this.gems) && that.name.equals(this.name)
+                      && that.section.equals(this.section))
     }
     else {
       false
