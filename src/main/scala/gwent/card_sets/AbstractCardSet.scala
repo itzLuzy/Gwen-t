@@ -10,7 +10,18 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   protected var numberOfCards: Int = 0
   def getArray: Array[Card] = cardArray
 
-  def getN: Int = numberOfCards
+  def getNumberOfCards: Int = numberOfCards
+
+  def this(array: Array[Card]) = {
+    this()
+    if (array.length <= length) {
+      for (i <- array.indices) {
+        cardArray(i) = array(i)
+        numberOfCards += 1
+      }
+    }
+  }
+  
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
     var r: Boolean = false
@@ -31,10 +42,10 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
     }
   }
 
-  def add(b: Array[Card]): Unit = {
-    if (b.length <= (length - numberOfCards)) {
-      for (i <- b.indices) {
-        cardArray(numberOfCards) = b(i)
+  def add(otherArray: Array[Card]): Unit = {
+    if (otherArray.length <= (length - numberOfCards)) {
+      for (i <- otherArray.indices) {
+        cardArray(numberOfCards) = otherArray(i)
         numberOfCards += 1
       }
     }
@@ -45,8 +56,8 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
 
   def remove(card: Card): Unit = {
     var i: Int = 0
-    var b: Boolean = false
-    while (i <= numberOfCards && !b) {
+    var break: Boolean = false
+    while (i <= numberOfCards && !break) {
       if (i < numberOfCards) {
         if (cardArray(i).equals(card)) {
           for (j <- i until numberOfCards) {
@@ -55,13 +66,17 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
         }
         numberOfCards -= 1
         cardArray(numberOfCards) = null
-        b = true
+        break = true
       }
       i += 1
     }
-    if (!b) {
+    if (!break) {
       println("Card was not found on the Card Set")
     }
+  }
+
+  override def canEqual(that: Any): Boolean = {
+    that.isInstanceOf[AbstractCardSet]
   }
 
   override def equals(obj: Any): Boolean = {

@@ -20,9 +20,9 @@ class Player(private val name: String, private val section: Int,
   def playCard(card: Card): Unit = {
     hand.play(card)
   }
-  def drawCard(card: Card): Unit = {
-    deck.remove(card)
-    hand.add(card)
+  def drawCard(): Unit = {
+    hand.add(deck.getArray(0))
+    deck.remove(deck.getArray(0))
   }
   def shuffle(): Unit = {
     deck.shuffle()

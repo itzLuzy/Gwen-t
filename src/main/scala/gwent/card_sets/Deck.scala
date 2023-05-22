@@ -9,16 +9,6 @@ class Deck() extends AbstractCardSet{
   override protected val length = 25
   cardArray = new Array[Card](length)
 
-  def this(array: Array[Card]) = {
-    this()
-    if (array.length <= length) {
-      for (i <- array.indices) {
-        cardArray(i) = array(i)
-        numberOfCards += 1
-      }
-    }
-  }
-
   def shuffle(): Unit = {
     val x = this.cardArray.toSeq
     this.cardArray = Random.shuffle(x).toArray
