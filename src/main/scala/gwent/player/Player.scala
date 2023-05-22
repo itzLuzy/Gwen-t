@@ -11,9 +11,9 @@ import scala.collection.mutable.ListBuffer
 
 class Player (private val _name: String, private var board: Board, private var _deck: ListBuffer[Card],
               private var _hand: ListBuffer[Card], private var _gems: Int = 2) extends isPlayer {
-  
+
   private var _section: Option[Section] = board.assignSection(this)
-  
+
   if (_gems < 0) {
     _gems = 1
   }
@@ -24,7 +24,7 @@ class Player (private val _name: String, private var board: Board, private var _
   def deck: List[Card] = _deck.toList
   
   def hand: List[Card] = _hand.toList
-  
+
   def isSectionAssigned: Boolean = _section.isDefined
 
   def loseGem(): Unit = {
@@ -35,7 +35,7 @@ class Player (private val _name: String, private var board: Board, private var _
   
   def playCard(card: Card): Unit = {
     if (_hand.contains(card) && isSectionAssigned) {
-      card.play()
+      card.play(board, _section.get)
       _hand -= card
     }
   }
