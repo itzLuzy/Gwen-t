@@ -1,9 +1,9 @@
 package cl.uchile.dcc
 package gwent.player_test
 
-import gwent.player.Player
 import gwent.cards.Card
-import gwent.cards.unit_cards.CloseCombatCard
+import cl.uchile.dcc.gwent.cards.unit_cards.CloseCombatCard
+import cl.uchile.dcc.gwent.player.Player
 
 import munit.FunSuite
 
