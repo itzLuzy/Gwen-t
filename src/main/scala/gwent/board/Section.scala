@@ -10,9 +10,9 @@ import scala.collection.mutable.ListBuffer
 
 class Section(private val _number: Int) extends isSection {
   private var _player: Option[Player] = None
-  private var _closeCombatZone: ListBuffer[CloseCombatCard] = new ListBuffer[CloseCombatCard]
-  private var _rangeCombatZone: ListBuffer[RangeCombatCard] = new ListBuffer[RangeCombatCard]
-  private var _siegeCombatZone: ListBuffer[SiegeCombatCard] = new ListBuffer[SiegeCombatCard]
+  private val _closeCombatZone: ListBuffer[CloseCombatCard] = new ListBuffer[CloseCombatCard]
+  private val _rangeCombatZone: ListBuffer[RangeCombatCard] = new ListBuffer[RangeCombatCard]
+  private val _siegeCombatZone: ListBuffer[SiegeCombatCard] = new ListBuffer[SiegeCombatCard]
   
   def number: Int = _number
   def isPlayerAssigned: Boolean = _player.isDefined

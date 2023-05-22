@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package gwent.cards
 
+import gwent.cards.AbstractCard
+
 import java.util.Objects
 
 class WeatherCard(name: String, val skill: String) 

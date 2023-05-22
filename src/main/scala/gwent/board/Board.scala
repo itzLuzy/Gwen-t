@@ -2,7 +2,6 @@ package cl.uchile.dcc
 package gwent.board
 
 import gwent.cards.unit_cards.{AbstractUnitCard, CloseCombatCard, RangeCombatCard, SiegeCombatCard}
-
 import cl.uchile.dcc.gwent.cards.WeatherCard
 import cl.uchile.dcc.gwent.player.Player
 
@@ -13,15 +12,19 @@ class Board extends isBoard {
   private val section2: Section = Section(2)
   private val weatherSection: ListBuffer[WeatherCard] = new ListBuffer[WeatherCard]
   
-  def assignSection(player: Player): Unit = {
+  def assignSection(player: Player): Option[Section] = {
     if (!section1.isPlayerAssigned) {
       section1.assignPlayer(player)
-      player.section_ = section1
+      Some(section1)
     }
     else if (!section2.isPlayerAssigned) {
       section2.assignPlayer(player)
-      player.section_ = section2
+      Some(section2)
     }
+    else {
+      None
+    }
+    
   }
 
   def playWeatherCard(card: WeatherCard): Unit = {
