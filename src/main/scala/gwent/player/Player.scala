@@ -1,9 +1,7 @@
 package cl.uchile.dcc
 package gwent.player
 
-import gwent.card_sets.{Deck, Hand}
 import gwent.cards.Card
-
 import java.util.Objects
 import scala.util.Random
 import scala.collection.mutable.ListBuffer

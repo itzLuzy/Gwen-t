@@ -5,5 +5,4 @@ trait Card {
   
   val name: String
   def play(): Unit
-  def draw(): Unit
 }

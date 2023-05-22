@@ -11,8 +11,4 @@ abstract class AbstractCard protected(val name: String) extends Card {
     println("The card '" + name + "' was played")
   }
 
-  def draw(): Unit = {
-    println("The card '" + name + "' was drawn from the deck")
-  }
-
 }
