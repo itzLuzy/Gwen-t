@@ -1,8 +1,8 @@
 package cl.uchile.dcc
 package gwent.cards
 
-class WeatherCard(name: String, val skill: String, onHand: Boolean = false) 
-  extends AbstractCard(name, onHand) {
+class WeatherCard(name: String, val skill: String) 
+  extends AbstractCard(name) {
 
   def getSkill: String = skill
 
