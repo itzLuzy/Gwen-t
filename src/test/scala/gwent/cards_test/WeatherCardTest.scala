@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent.cards
+package gwent.cards_test
 
 class WeatherCardTest {
 

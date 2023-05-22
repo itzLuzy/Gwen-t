@@ -1,5 +1,5 @@
 package cl.uchile.dcc
-package gwent.cards.unit_cards
+package gwent.cards_test.unit_cards_test
 
 import munit.FunSuite
 

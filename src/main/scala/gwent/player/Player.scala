@@ -6,15 +6,13 @@ import java.util.Objects
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
 
-class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
-                     var _deck: ListBuffer[Card], var _hand: ListBuffer[Card]) extends isPlayer {
+class Player (private val _name: String, private var _deck: ListBuffer[Card],
+              private var _hand: ListBuffer[Card], private var _gems: Int = 2) extends isPlayer {
   
   if (_gems < 0) {
     _gems = 1
   }
   def name: String = _name
-  
-  def section: Int = _section
   
   def gems: Int = _gems
   
@@ -49,13 +47,12 @@ class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
       val that = obj.asInstanceOf[Player]
 
       (this eq that) || (that.deck.equals(this.deck) && that.hand.equals(this.hand)
-                      && that.gems.equals(this.gems) && that.name.equals(this.name)
-                      && that.section.equals(this.section))
+                      && that.gems.equals(this.gems) && that.name.equals(this.name))
     }
     else {
       false
     }
   }
 
-  override def hashCode(): Int = Objects.hash(classOf[Player], _name, _section)
+  override def hashCode(): Int = Objects.hash(classOf[Player], _name)
 }
