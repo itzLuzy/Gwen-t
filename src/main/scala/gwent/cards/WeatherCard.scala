@@ -24,5 +24,5 @@ class WeatherCard(_name: String, private val _skill: String)
       false
     }
   }
-  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], name, _skill)
+  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], _name, _skill)
 }
