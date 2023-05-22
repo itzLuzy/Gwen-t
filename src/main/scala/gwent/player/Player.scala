@@ -5,9 +5,11 @@ import gwent.card_sets.{Deck, Hand}
 import gwent.cards.Card
 
 import java.util.Objects
+import scala.util.Random
+import scala.collection.mutable.ListBuffer
 
 class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
-                     val _deck: Deck, val _hand: Hand) extends isPlayer {
+                     var _deck: ListBuffer[Card], var _hand: ListBuffer[Card]) extends isPlayer {
   
   if (_gems < 0) {
     _gems = 1
@@ -18,9 +20,9 @@ class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
   
   def gems: Int = _gems
   
-  def deck: Deck = _deck
+  def deck: List[Card] = _deck.toList
   
-  def hand: Hand = _hand
+  def hand: List[Card] = _hand.toList
 
   def loseGem(): Unit = {
     if (_gems >= 1) {
@@ -29,14 +31,18 @@ class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
   }
   
   def playCard(card: Card): Unit = {
-    _hand.play(card)
+    if (_hand.contains(card)) {
+      card.play()
+      _hand -= card
+    }
   }
   def drawCard(): Unit = {
-    _hand.add(_deck.getArray(0))
-    _deck.remove(_deck.getArray(0))
+    val card = deck.head
+    _hand += card
+    _deck -= card
   }
-  def shuffle(): Unit = {
-    _deck.shuffle()
+  def shuffleDeck(): Unit = {
+    _deck = Random.shuffle(_deck)
   }
 
   override def equals(obj: Any): Boolean = {

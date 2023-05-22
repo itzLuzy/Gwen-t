@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent
 import cl.uchile.dcc.gwent.card_sets.{Deck, Hand}
-import cl.uchile.dcc.gwent.cards.{AbstractUnitCard, CloseCombatCard, RangedCombatCard, SiegeCombatCard}
+import cl.uchile.dcc.gwent.cards.unitCards.{AbstractUnitCard, CloseCombatCard, RangedCombatCard, SiegeCombatCard}
 import cl.uchile.dcc.gwent.player.Player
 import munit.FunSuite
 
