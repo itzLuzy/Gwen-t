@@ -4,11 +4,13 @@ package gwent.player
 import gwent.card_sets.{Deck, Hand}
 import gwent.cards.Card
 
+import java.util.Objects
+
 class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
                      val _deck: Deck, val _hand: Hand) extends isPlayer {
   
   if (_gems < 0) {
-    _gems = 0
+    _gems = 1
   }
   def name: String = _name
   
@@ -50,4 +52,6 @@ class Player private(val _name: String, val _section: Int, var _gems: Int = 2,
       false
     }
   }
+
+  override def hashCode(): Int = Objects.hash(classOf[Player], _name, _section)
 }

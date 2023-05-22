@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package gwent.cards
 
+import java.util.Objects
+
 class WeatherCard(name: String, val skill: String) 
   extends AbstractCard(name) {
 
@@ -15,4 +17,5 @@ class WeatherCard(name: String, val skill: String)
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], name, skill)
 }

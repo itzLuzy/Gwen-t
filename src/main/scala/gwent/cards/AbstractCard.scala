@@ -1,6 +1,8 @@
 package cl.uchile.dcc
 package gwent.cards
 
+import java.util.Objects
+
 abstract class AbstractCard protected(val name: String) extends Card {
   
   def getName: String = name
@@ -13,13 +15,4 @@ abstract class AbstractCard protected(val name: String) extends Card {
     println("The card '" + name + "' was drawn from the deck")
   }
 
-  override def equals(obj: Any): Boolean = {
-    if (obj.isInstanceOf[AbstractCard]) {
-      val that = obj.asInstanceOf[AbstractCard]
-      (this eq that) || (that.name == this.name)
-    }
-    else {
-      false
-    }
-  }
 }

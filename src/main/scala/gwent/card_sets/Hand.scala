@@ -3,6 +3,8 @@ package gwent.card_sets
 
 import gwent.cards.Card
 
+import java.util.Objects
+
 class Hand() extends AbstractCardSet{
   override protected val length = 10
   cardArray = new Array[Card](length)
@@ -24,6 +26,7 @@ class Hand() extends AbstractCardSet{
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[Hand])
   
 
 }

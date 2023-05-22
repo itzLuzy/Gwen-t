@@ -7,4 +7,5 @@ trait isPlayer{
   def playCard(card: Card): Unit
   def drawCard(): Unit
   def shuffle(): Unit
+  def loseGem(): Unit
 }

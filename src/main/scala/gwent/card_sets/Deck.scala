@@ -3,6 +3,7 @@ package gwent.card_sets
 
 import gwent.cards.Card
 
+import java.util.Objects
 import scala.util.Random
 
 class Deck() extends AbstractCardSet{
@@ -26,4 +27,5 @@ class Deck() extends AbstractCardSet{
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[Deck])
 }

@@ -3,6 +3,8 @@ package gwent.card_sets
 
 import gwent.cards.Card
 
+import java.util.Objects
+
 
 abstract class AbstractCardSet() extends isCardSet with Equals {
   protected val length: Int  = 25
@@ -24,12 +26,12 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
   
   def isIncluded(card: Card): Boolean = {
     var i: Int = 0
-    var r: Boolean = false
-    while (i < numberOfCards && ! r) {
-      if (cardArray(i).equals(card)) {r = true}
+    var bool: Boolean = false
+    while (i < numberOfCards && ! bool) {
+      if (cardArray(i).equals(card)) {bool = true}
       i += 1
     }
-    r
+    bool
   }
 
   def add(card: Card): Unit = {
@@ -72,22 +74,6 @@ abstract class AbstractCardSet() extends isCardSet with Equals {
     }
     if (!break) {
       println("Card was not found on the Card Set")
-    }
-  }
-
-  override def canEqual(that: Any): Boolean = {
-    that.isInstanceOf[AbstractCardSet]
-  }
-
-  override def equals(obj: Any): Boolean = {
-    if (obj.isInstanceOf[AbstractCardSet]) {
-      
-      val that = obj.asInstanceOf[AbstractCardSet]
-
-      (this eq that) || (that.getArray.sameElements(this.getArray))
-    }
-    else {
-      false
     }
   }
 }
