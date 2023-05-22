@@ -13,13 +13,30 @@ class Board extends isBoard {
   private val section2: Section = Section(2)
   private val weatherSection: ListBuffer[WeatherCard] = new ListBuffer[WeatherCard]
   
-  def assignSection(player: Player): Int = ???
+  def assignSection(player: Player): Unit = {
+    if (!section1.isPlayerAssigned) {
+      section1.assignPlayer(player)
+      player.section_ = section1
+    }
+    else if (!section2.isPlayerAssigned) {
+      section2.assignPlayer(player)
+      player.section_ = section2
+    }
+  }
 
-  def playWeatherCard(card: WeatherCard): Unit = ???
+  def playWeatherCard(card: WeatherCard): Unit = {
+    weatherSection += card
+  }
 
-  def playCloseCombatCard(card: CloseCombatCard, section: Int): Unit = ???
+  def playCloseCombatCard(card: CloseCombatCard, section: Section): Unit = {
+    section.addCloseCombatCard(card)
+  }
 
-  def playRangeCombatCard(card: RangeCombatCard, section: Int): Unit = ???
+  def playRangeCombatCard(card: RangeCombatCard, section: Section): Unit = {
+    section.addRangeCombatCard(card)
+  }
 
-  def playSiegeCombatCard(card: SiegeCombatCard, section: Int): Unit = ???
+  def playSiegeCombatCard(card: SiegeCombatCard, section: Section): Unit = {
+    section.addSiegeCombatCard(card)
+  }
 }

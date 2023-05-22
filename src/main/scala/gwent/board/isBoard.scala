@@ -8,13 +8,13 @@ import cl.uchile.dcc.gwent.player.Player
 import scala.collection.mutable.ListBuffer
 
 trait isBoard {
-  def assignSection(player: Player): Int
+  def assignSection(player: Player): Section
   
   def playWeatherCard(card: WeatherCard): Unit
   
-  def playCloseCombatCard(card: CloseCombatCard, section: Int): Unit
+  def playCloseCombatCard(card: CloseCombatCard, section: Section): Unit
   
-  def playRangeCombatCard(card: RangeCombatCard, section: Int): Unit
+  def playRangeCombatCard(card: RangeCombatCard, section: Section): Unit
   
-  def playSiegeCombatCard(card: SiegeCombatCard, section: Int): Unit
+  def playSiegeCombatCard(card: SiegeCombatCard, section: Section): Unit
 }
