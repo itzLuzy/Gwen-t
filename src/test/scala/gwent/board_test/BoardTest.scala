@@ -27,10 +27,6 @@ class BoardTest extends FunSuite {
     weatherCard = new WeatherCard("Jodio", "November Rain")
     deck = new ListBuffer[Card]
     hand = new ListBuffer[Card]
-    deck += closeCombatCard
-    deck += rangeCombatCard
-    deck += siegeCombatCard
-    deck += weatherCard
   }
 
   test("If the section 1 is available, player is assigned there") {
@@ -58,20 +54,14 @@ class BoardTest extends FunSuite {
   }
 
   test("playing works properly for every type of card") {
-    val player1: Player = new Player("Pepe", board, deck, hand)
-    player1.drawCard()
-    player1.drawCard()
-    player1.drawCard()
-    player1.drawCard()
-    player1.playCard(closeCombatCard)
-    player1.playCard(rangeCombatCard)
-    player1.playCard(siegeCombatCard)
-    player1.playCard(weatherCard)
+    board.playCloseCombatCard(closeCombatCard, board.section1)
+    board.playRangeCombatCard(rangeCombatCard, board.section1)
+    board.playSiegeCombatCard(siegeCombatCard, board.section1)
+    board.playWeatherCard(weatherCard)
     
     assert(board.section1.closeCombatZone.contains(closeCombatCard))
     assert(board.section1.rangeCombatZone.contains(rangeCombatCard))
     assert(board.section1.siegeCombatZone.contains(siegeCombatCard))
     assert(board.weatherSection.contains(weatherCard))
   }
-  
 }

@@ -13,7 +13,7 @@ class Section(private val _number: Int) extends isSection {
   private val _closeCombatZone: ListBuffer[CloseCombatCard] = new ListBuffer[CloseCombatCard]
   private val _rangeCombatZone: ListBuffer[RangeCombatCard] = new ListBuffer[RangeCombatCard]
   private val _siegeCombatZone: ListBuffer[SiegeCombatCard] = new ListBuffer[SiegeCombatCard]
-  
+
   def number: Int = _number
   def isPlayerAssigned: Boolean = _player.isDefined
   def closeCombatZone: List[CloseCombatCard] = _closeCombatZone.toList
@@ -22,7 +22,7 @@ class Section(private val _number: Int) extends isSection {
 
   def assignPlayer(player: Player): Unit = {
     if (_player.isEmpty) {
-      _player = Some(player) 
+      _player = Some(player)
     }
   }
   def addCloseCombatCard(card: CloseCombatCard): Unit = {
