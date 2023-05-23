@@ -29,7 +29,6 @@ class Board extends isBoard {
     else {
       None
     }
-    
   }
 
   def playWeatherCard(card: WeatherCard): Unit = {
