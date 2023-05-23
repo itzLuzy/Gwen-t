@@ -10,7 +10,7 @@ import munit.FunSuite
 
 import scala.collection.mutable.ListBuffer
 
-class PlayerTest extends FunSuite{
+class PlayerTest extends FunSuite {
   var board1: Board = null
   var board2: Board = null
   var player1: Player = null
