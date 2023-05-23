@@ -32,7 +32,7 @@ class WeatherCardTest extends FunSuite {
   test("The skill getter for weather cards works properly"){
     assertEquals(card1.skill, "Heavy Weather")
   }
-  
+
   test("If a weather card is played, it should be put into its proper section") {
     player.playCard(card1)
     assert(board.weatherSection.contains(card1))
@@ -42,7 +42,7 @@ class WeatherCardTest extends FunSuite {
     assertEquals(card1, card2)
     assertNotEquals(card1, card3)
   }
-  
+
   test("The hashCode method works properly") {
     assertEquals(card1.##, card2.##)
     assertNotEquals(card1.##, card3.##)

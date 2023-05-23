@@ -14,4 +14,8 @@ This project's goal is to create a (simplified) clone of the
 ---
 
 #### Personal Comments
-Sorry me faltó tiempo, no va a volver a pasar :(
+- Lo siento por no tener todo documentado, para la entrega final voy a dejar todo fino.
+- La implementación de esta entrega parcial difiere mucho con respecto a la implementación que
+tenía antes (por ejemplo, borré completamente las clases de sets de cartas por ser innecesarios) 
+y por lo tanto el diagrama UML que hice para la entrega anterior no se corresponde con el código actual,
+espero que lo tengan en cuenta a la hora de revisar uwu.
