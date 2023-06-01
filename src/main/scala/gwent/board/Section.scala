@@ -8,16 +8,50 @@ import cl.uchile.dcc.gwent.player.Player
 
 import scala.collection.mutable.ListBuffer
 
+/** A representation of a section of a board.
+ *
+ * A section is the place where unit cards of a specific player are played. It is divided in three zones, one for each
+ * type of unit card.
+ * 
+ * @param _number The number of the section, used to distinguish the two sections of a board from each other.
+ */
 class Section(private val _number: Int) extends isSection {
+  
+  /** The player who plays on this section
+   * 
+   * If a player is assigned to the section, this variable will contain a Some with the corresponding player, else, 
+   * it will contain a None.
+   */
   private var _player: Option[Player] = None
+
+  /** The zone where the close combat cards are played */
   private val _closeCombatZone: ListBuffer[CloseCombatCard] = new ListBuffer[CloseCombatCard]
+
+  /** The zone where the range combat cards are played */
   private val _rangeCombatZone: ListBuffer[RangeCombatCard] = new ListBuffer[RangeCombatCard]
+
+  /** The zone where the siege combat cards are played */
   private val _siegeCombatZone: ListBuffer[SiegeCombatCard] = new ListBuffer[SiegeCombatCard]
 
+  /** The getter for the section's number */
   def number: Int = _number
+
+  /** Tells if there's a player assigned to the section.
+   * 
+   * The method checks if the _player variable is defined (is not None) and if it is, it means that there is a player
+   * assigned to the section, else, there's not.
+   * 
+   * @return A boolean to indicate wether there's a player assigned to the section or not.
+   */
   def isPlayerAssigned: Boolean = _player.isDefined
+  
+  /** The getter for the close combat zone */
   def closeCombatZone: List[CloseCombatCard] = _closeCombatZone.toList
+
+  /** The getter for the range combat zone */
   def rangeCombatZone: List[RangeCombatCard] = _rangeCombatZone.toList
+
+  /** The getter for the siege combat zone */
   def siegeCombatZone: List[SiegeCombatCard] = _siegeCombatZone.toList
 
   def assignPlayer(player: Player): Unit = {

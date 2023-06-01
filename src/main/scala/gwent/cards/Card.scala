@@ -4,12 +4,6 @@ package gwent.cards
 import gwent.board.{Board, Section}
 
 trait Card {
-
-  /** The name of the card
-   *
-   */
-  val _name: String
-
   /** Plays the card on the indicated section of the indicated board
    * 
    * This method uses double dispatch to play the card, i.e. it calls the play

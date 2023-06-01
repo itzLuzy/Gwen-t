@@ -7,13 +7,34 @@ import cl.uchile.dcc.gwent.player.Player
 
 import scala.collection.mutable.ListBuffer
 
+/** A representation of a Gwen't board
+ *
+ * A board is where the players play their cards. It consists of three sections, two of wich are assigned to each
+ * player and are the place where they play their unit cards, while the other section is used for playing weather cards.
+ * A board can take a maximum of two players.
+ * 
+ * @constructor Creates a new board
+ */
 class Board extends isBoard {
+  /** The section 1 of the board, where unit cards are played */
   private val _section1: Section = Section(1)
+  
+  /** The section 2 of the board, where unit cards are played */
   private val _section2: Section = Section(2)
+  
+  /** The weather section, where weather cards are played.
+   * 
+   * Unlike the other two, this section is represented as a ListBuffer of weather cards.
+   * */
   private val _weatherSection: ListBuffer[WeatherCard] = new ListBuffer[WeatherCard]
   
+  /** The getter for the section1 of the board */
   def section1: Section = _section1
+
+  /** The getter for the section2 of the board */
   def section2: Section = _section2
+
+  /** The getter for the weather section of the board */
   def weatherSection: List[WeatherCard] = _weatherSection.toList
   
   

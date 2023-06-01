@@ -7,8 +7,17 @@ import cl.uchile.dcc.gwent.board.{Board, Section}
 
 import java.util.Objects
 
+/** A representation of a weather card
+ * 
+ * @param _name The name of the card
+ * @param _skill The skill of the card
+ *               
+ * @constructor Creates a new weather card with the specified name and skill
+ */
 class WeatherCard(_name: String, private val _skill: String) 
   extends AbstractCard(_name) {
+  
+  /** The getter for the card's skill*/
   def skill: String = _skill
 
   def play(board:  Board, section:  Section): Unit = {

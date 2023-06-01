@@ -7,6 +7,13 @@ import cl.uchile.dcc.gwent.board.{Board, Section}
 
 import java.util.Objects
 
+/** A representation of a unit card of the close combat type
+ * 
+ * @param _name The name of the card
+ * @param _strength The strength of the card
+ *                  
+ * @constructor Creates a new close combat card with the specified name and strength
+ */
 class CloseCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section:  Section): Unit = {
     board.playCloseCombatCard(this, section)

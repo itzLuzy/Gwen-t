@@ -7,6 +7,13 @@ import cl.uchile.dcc.gwent.board.{Board, Section}
 
 import java.util.Objects
 
+/** A representation of a unit card of the range combat type
+ *
+ * @param _name The name of the card
+ * @param _strength The strength of the card
+ *
+ * @constructor Creates a new range combat card with the specified name and strength
+ */
 class RangeCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section: Section): Unit = {
     board.playRangeCombatCard(this, section)

@@ -7,7 +7,14 @@ import cl.uchile.dcc.gwent.board.{Board, Section}
 
 import java.util.Objects
 
-class SiegeCombatCard(name: String, strength: Int) extends AbstractUnitCard(name, strength) {
+/** A representation of a unit card of the siege combat type
+ *
+ * @param _name The name of the card
+ * @param _strength The strength of the card
+ *
+ * @constructor Creates a new siege combat card with the specified name and strength
+ */
+class SiegeCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section:  Section): Unit = {
     board.playSiegeCombatCard(this, section)
   }
@@ -15,7 +22,7 @@ class SiegeCombatCard(name: String, strength: Int) extends AbstractUnitCard(name
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[SiegeCombatCard]) {
       val that = obj.asInstanceOf[SiegeCombatCard]
-      (this eq that) || (that.name == this.name && that._strength == this._strength)
+      (this eq that) || (that._name == this._name && that._strength == this._strength)
     }
     else {
       false

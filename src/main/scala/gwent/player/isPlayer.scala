@@ -28,8 +28,8 @@ trait isPlayer{
 
   /** Player loses a gem
    * 
-   * If the player has more than zero gems this method reduces the amount in one.
-   * Else, the method does nothing to ensure that the gem amount is not negative
+   * This method reduces the player's gem amount in one.
+   * Only works when the player has at least one gem, to ensure that the amount of gems is never negative.
    */
   def loseGem(): Unit
 }
