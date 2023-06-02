@@ -14,7 +14,8 @@ import java.util.Objects
  *
  * @constructor Creates a new siege combat card with the specified name and strength
  */
-class SiegeCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
+class SiegeCombatCard(override protected val _name: String, override protected val _strength: Int)
+  extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section:  Section): Unit = {
     board.playSiegeCombatCard(this, section)
   }

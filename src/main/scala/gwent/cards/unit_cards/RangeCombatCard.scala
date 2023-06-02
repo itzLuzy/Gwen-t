@@ -14,7 +14,8 @@ import java.util.Objects
  *
  * @constructor Creates a new range combat card with the specified name and strength
  */
-class RangeCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
+class RangeCombatCard(override protected val _name: String, override protected val _strength: Int)
+  extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section: Section): Unit = {
     board.playRangeCombatCard(this, section)
   }

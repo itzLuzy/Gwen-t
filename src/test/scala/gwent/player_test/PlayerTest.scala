@@ -60,6 +60,9 @@ class PlayerTest extends FunSuite {
   }
 
   test("The player shouldn't have less than 0 gems") {
+    val player4: Player = new Player("Johnny", board1, deck, hand, -10)
+    assert(player4.gems >= 0)
+    
     player1.loseGem()
     player1.loseGem()
     player1.loseGem()

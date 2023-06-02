@@ -9,7 +9,7 @@ import java.util.Objects
  * @param _name The name of the card
  * @param _strength The strength of the card
  */
-abstract class AbstractUnitCard (_name: String, val _strength: Int) 
+abstract class AbstractUnitCard (override protected val _name: String, protected val _strength: Int) 
   extends AbstractCard(_name) {
   
   /** The getter for the card's strength */

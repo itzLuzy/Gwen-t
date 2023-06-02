@@ -14,7 +14,7 @@ import java.util.Objects
  *               
  * @constructor Creates a new weather card with the specified name and skill
  */
-class WeatherCard(_name: String, private val _skill: String) 
+class WeatherCard(override protected val _name: String, private val _skill: String) 
   extends AbstractCard(_name) {
   
   /** The getter for the card's skill*/

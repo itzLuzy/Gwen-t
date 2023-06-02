@@ -14,7 +14,8 @@ import java.util.Objects
  *                  
  * @constructor Creates a new close combat card with the specified name and strength
  */
-class CloseCombatCard(_name: String, _strength: Int) extends AbstractUnitCard(_name, _strength) {
+class CloseCombatCard(override protected val _name: String, override protected val _strength: Int) 
+  extends AbstractUnitCard(_name, _strength) {
   def play(board: Board, section:  Section): Unit = {
     board.playCloseCombatCard(this, section)
   }
