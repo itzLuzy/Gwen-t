@@ -12,10 +12,10 @@ This project's goal is to create a (simplified) clone of the
 [_Gwent_](https://www.playgwent.com/en) card game developed by [_CD PROJEKT RED_](https://cdprojektred.com/en/)
 
 ---
+### Diagrama de estados
 
-#### Personal Comments
+<img src=state_diagram.jpg alt="state diagram" width=550>
 
-- Para esta entrega no usé exceptions para atrapar los errores, para la próxima voy a intentar usarlos uwu
-- Lo puse en la anterior entrega pero lo pongo de nuevo por si acaso: esta implementación difiere mucho del UML 
-que entregué en la entrega parcial, así que por favor no usen ese UML para revisar, el que entregué ahora está 
-actualizado u.u
+### Personal Comments
+
+- ඞ
