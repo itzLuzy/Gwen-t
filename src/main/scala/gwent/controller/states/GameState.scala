@@ -18,7 +18,7 @@ class GameState (val context: GameController) {
     transitionError()
   }
 
-  def playerPlays(): Unit = {
+  def changePlayer(): Unit = {
     transitionError()
   }
 
@@ -38,5 +38,3 @@ class GameState (val context: GameController) {
     throw new InvalidTransitionException("Invalid states transition")
   }
 }
-
-class InvalidTransitionException(message: String) extends Exception(message)
