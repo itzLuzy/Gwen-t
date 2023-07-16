@@ -4,8 +4,6 @@ package gwent.controller.states
 import gwent.controller.GameController
 
 class GameState (val context: GameController) {
-  context.state = this
-  
   def beginGame(): Unit = {
     transitionError()
   }
