@@ -61,14 +61,23 @@ class Section(private val _number: Int) extends isSection {
   }
   def addCloseCombatCard(card: CloseCombatCard): Unit = {
     _closeCombatZone += card
+    if (card.hasEffect) {
+      _closeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+    }
   }
 
   def addRangeCombatCard(card: RangeCombatCard): Unit = {
     _rangeCombatZone += card
+    if (card.hasEffect) {
+      _rangeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+    }
   }
 
   def addSiegeCombatCard(card: SiegeCombatCard): Unit = {
     _siegeCombatZone += card
+    if (card.hasEffect) {
+      _siegeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+    }
   }
 
   def removeCloseCombatCard(card: CloseCombatCard): Unit = {

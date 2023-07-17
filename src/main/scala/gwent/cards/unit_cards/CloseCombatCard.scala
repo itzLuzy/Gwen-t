@@ -27,7 +27,7 @@ class CloseCombatCard(override protected val _name: String, override protected v
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[CloseCombatCard]) {
       val that = obj.asInstanceOf[CloseCombatCard]
-      (this eq that) || (that.name == this.name && that.originalStrength == this.originalStrength)
+      (this eq that) || (this._name == that._name && that.originalStrength == this.originalStrength && this._effect == that._effect)
     }
     else {
       false

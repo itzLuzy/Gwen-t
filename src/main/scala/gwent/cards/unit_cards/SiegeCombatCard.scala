@@ -27,7 +27,7 @@ class SiegeCombatCard(override protected val _name: String, override protected v
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[SiegeCombatCard]) {
       val that = obj.asInstanceOf[SiegeCombatCard]
-      (this eq that) || (that._name == this._name && that.originalStrength == this.originalStrength)
+      (this eq that) || (that._name == this._name && that.originalStrength == this.originalStrength && that._effect == this._effect)
     }
     else {
       false

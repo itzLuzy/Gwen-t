@@ -12,5 +12,7 @@ import java.util.Objects
 abstract class AbstractCard (protected val _name: String, protected val _effect: Option[Effect] = None) extends Card {
   /** The getter for the card's name */
   def name: String = _name
+  def effect: Option[Effect] = _effect
+  def hasEffect: Boolean = _effect.isDefined
 
 }
