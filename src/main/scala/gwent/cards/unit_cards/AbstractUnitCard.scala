@@ -24,9 +24,9 @@ abstract class AbstractUnitCard (override protected val _name: String, protected
   
   def increaseStrength(): Unit = {strength += 1}
   
-  def decreaseStrength(): Unit = {
-    if (strength > 0) {
-      strength -= 1
-    }
-  }
+  def setStrengthToOne(): Unit = {strength = 1}
+  
+  def doubleStrength(): Unit = {strength *= 2}
+  
+  def resetStrength(): Unit = {strength = originalStrength}
 }
