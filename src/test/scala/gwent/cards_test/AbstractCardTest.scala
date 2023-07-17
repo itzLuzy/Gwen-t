@@ -8,7 +8,7 @@ class AbstractCardTest extends FunSuite {
   var card: WeatherCard = null
 
   override def beforeEach(context: BeforeEach): Unit = {
-    card = WeatherCard("WeatherReport", "HeavyWeather")
+    card = WeatherCard("WeatherReport")
   }
   
   test("The name getter for cards works properly"){

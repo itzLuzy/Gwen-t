@@ -85,7 +85,7 @@ class PlayerTest extends FunSuite {
   }
   
   test("If the card is not on the player's hand, the playCard method does nothing") {
-    val card1 = new WeatherCard("WeatherReport", "HeavyWeather")
+    val card1 = new WeatherCard("WeatherReport")
     player1.playCard(card1)
     assert(board1.weatherSection.isEmpty)
   }

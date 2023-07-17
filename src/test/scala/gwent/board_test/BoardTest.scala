@@ -24,7 +24,7 @@ class BoardTest extends FunSuite {
     closeCombatCard = new CloseCombatCard("Jotaro", 9)
     rangeCombatCard = new RangeCombatCard("Johnny", 10)
     siegeCombatCard = new SiegeCombatCard("Giorno", 8)
-    weatherCard = new WeatherCard("Jodio", "November Rain")
+    weatherCard = new WeatherCard("Jodio")
     deck = new ListBuffer[Card]
     hand = new ListBuffer[Card]
   }

@@ -22,15 +22,11 @@ class WeatherCardTest extends FunSuite {
     board = new Board
     deck = new ListBuffer[Card]
     hand = new ListBuffer[Card]
-    card1 = new WeatherCard("Weather Report", "Heavy Weather")
-    card2 = new WeatherCard("Weather Report", "Heavy Weather")
-    card3 = new WeatherCard("Jodio Joestar", "November Rain")
+    card1 = new WeatherCard("Weather Report")
+    card2 = new WeatherCard("Weather Report")
+    card3 = new WeatherCard("Jodio Joestar")
     hand += card1
     player = new Player("Amogus", board, deck, hand)
-  }
-
-  test("The skill getter for weather cards works properly"){
-    assertEquals(card1.skill, "Heavy Weather")
   }
 
   test("If a weather card is played, it should be put into its proper section") {
