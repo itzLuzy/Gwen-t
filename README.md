@@ -17,5 +17,6 @@ This project's goal is to create a (simplified) clone of the
 <img src=state_diagram.jpg alt="state diagram" width=550>
 
 ### Personal Comments
-
+- Dejo como registro en caso de emergencia de que se estaba quemando un poste de luz fuera de mi casa y estaba parpadeando
+la luz, en caso de que se corte xdn't
 - ඞ
