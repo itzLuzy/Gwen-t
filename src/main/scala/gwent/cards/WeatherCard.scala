@@ -11,15 +11,12 @@ import java.util.Objects
 /** A representation of a weather card
  * 
  * @param _name The name of the card
- * @param _skill The skill of the card
+ * @param _effect The effect of the card
  *               
  * @constructor Creates a new weather card with the specified name and skill
  */
-class WeatherCard(override protected val _name: String, private val _skill: String) 
-  extends AbstractCard(_name) {
-  
-  /** The getter for the card's skill*/
-  def skill: String = _skill
+class WeatherCard(override protected val _name: String, override protected val _effect: Option[Effect] = None) 
+  extends AbstractCard(_name, _effect) {
 
   def play(board:  Board, section:  Section): Unit = {
     board.playWeatherCard(this)
@@ -28,11 +25,11 @@ class WeatherCard(override protected val _name: String, private val _skill: Stri
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[WeatherCard]) {
       val that = obj.asInstanceOf[WeatherCard]
-      (this eq that) || (that.name == this.name && that._skill == this._skill)
+      (this eq that) || (that.name == this.name && that._effect == this._effect)
     }
     else {
       false
     }
   }
-  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], _name, _skill)
+  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], _name, _effect)
 }

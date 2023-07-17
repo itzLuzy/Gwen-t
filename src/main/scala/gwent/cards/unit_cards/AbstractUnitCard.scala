@@ -12,8 +12,9 @@ import java.util.Objects
  * @param _name The name of the card
  * @param originalStrength The initial strength of the card
  */
-abstract class AbstractUnitCard (override protected val _name: String, protected val originalStrength: Int) 
-  extends AbstractCard(_name) {
+abstract class AbstractUnitCard (override protected val _name: String, protected val originalStrength: Int,
+                                 override protected val _effect: Option[Effect] = None) 
+  extends AbstractCard(_name, _effect) {
 
   def applyEffect(effect: Effect): Unit
 
