@@ -11,12 +11,12 @@ import java.util.Objects
 /** A representation of a weather card
  * 
  * @param _name The name of the card
- * @param _effect The effect of the card
+ * @param weatherEffect The effect of the card
  *               
  * @constructor Creates a new weather card with the specified name and skill
  */
-class WeatherCard(override protected val _name: String, override protected val _effect: Option[Effect] = None) 
-  extends AbstractCard(_name, _effect) {
+class WeatherCard(override protected val _name: String, protected val weatherEffect: Effect)
+  extends AbstractCard(_name, Some(weatherEffect)) {
 
   def play(board:  Board, section:  Section): Unit = {
     board.playWeatherCard(this)

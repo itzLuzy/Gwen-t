@@ -3,7 +3,7 @@ package gwent.cards.unit_cards
 
 import gwent.cards.AbstractCard
 
-import cl.uchile.dcc.gwent.effects.Effect
+import cl.uchile.dcc.gwent.effects.{Effect, UnitAbility}
 
 import java.util.Objects
 
@@ -13,9 +13,12 @@ import java.util.Objects
  * @param originalStrength The initial strength of the card
  */
 abstract class AbstractUnitCard (override protected val _name: String, protected val originalStrength: Int,
-                                 override protected val _effect: Option[Effect] = None) 
+                                 override protected val _effect: Option[UnitAbility] = None) 
   extends AbstractCard(_name, _effect) {
-
+  
+  if (this.hasEffect) {
+    _effect.get.assignCard(this)
+  }
   def applyEffect(effect: Effect): Unit
 
   protected var strength: Int = originalStrength

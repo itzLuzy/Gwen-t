@@ -4,12 +4,14 @@ package gwent.effects_test
 import cl.uchile.dcc.gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 import gwent.effects.{BitingFrost, ClearWeather, ImpenetrableFog, MoraleBoost, TightBond, TorrentialRain}
 
+import cl.uchile.dcc.gwent.cards.WeatherCard
 import munit.FunSuite
 
 class EffectsTest extends FunSuite {
   var ccard: CloseCombatCard = null
   var rcard: RangeCombatCard = null
   var scard: SiegeCombatCard = null
+  var wcard: WeatherCard = null
   var frost: BitingFrost = null
   var clear: ClearWeather = null
   var fog: ImpenetrableFog = null
@@ -22,11 +24,12 @@ class EffectsTest extends FunSuite {
     clear = new ClearWeather()
     fog = new ImpenetrableFog()
     rain = new TorrentialRain()
-    bond = new TightBond("Fauna")
+    bond = new TightBond()
     morale = new MoraleBoost()
     ccard = new CloseCombatCard("Funny", 9, Some(morale))
-    rcard = new RangeCombatCard("Fauna", 7)
+    rcard = new RangeCombatCard("Fauna", 7, Some(bond))
     scard = new SiegeCombatCard("Funny", 6)
+    wcard = new WeatherCard("Wes", Some())
   }
   
   test("") {
