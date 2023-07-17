@@ -7,9 +7,12 @@ import gwent.board.Board
 import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 import gwent.player.Player
 
+import cl.uchile.dcc.gwent.effects.weather_effects.{BitingFrost, WeatherEffect}
+
 import scala.collection.mutable.ListBuffer
 
 class BoardTest extends FunSuite {
+  var weffect: WeatherEffect = null
   var board: Board = null
   var closeCombatCard: CloseCombatCard = null
   var rangeCombatCard: RangeCombatCard = null
@@ -18,13 +21,14 @@ class BoardTest extends FunSuite {
   var deck: ListBuffer[Card] = null
   var hand: ListBuffer[Card] = null
   override def beforeEach(context: BeforeEach): Unit = {
+    weffect = new BitingFrost
     board = new Board
     deck = new ListBuffer[Card]
     hand = new ListBuffer[Card]
     closeCombatCard = new CloseCombatCard("Jotaro", 9)
     rangeCombatCard = new RangeCombatCard("Johnny", 10)
     siegeCombatCard = new SiegeCombatCard("Giorno", 8)
-    weatherCard = new WeatherCard("Jodio")
+    weatherCard = new WeatherCard("Jodio", weffect)
     deck = new ListBuffer[Card]
     hand = new ListBuffer[Card]
   }

@@ -2,9 +2,10 @@ package cl.uchile.dcc
 package gwent.effects_test
 
 import cl.uchile.dcc.gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
-import gwent.effects.{BitingFrost, ClearWeather, ImpenetrableFog, MoraleBoost, TightBond, TorrentialRain}
 
 import cl.uchile.dcc.gwent.cards.WeatherCard
+import cl.uchile.dcc.gwent.effects.unit_abilities.{MoraleBoost, TightBond}
+import cl.uchile.dcc.gwent.effects.weather_effects.{BitingFrost, ClearWeather, ImpenetrableFog, TorrentialRain}
 import munit.FunSuite
 
 class EffectsTest extends FunSuite {
@@ -29,7 +30,7 @@ class EffectsTest extends FunSuite {
     ccard = new CloseCombatCard("Funny", 9, Some(morale))
     rcard = new RangeCombatCard("Fauna", 7, Some(bond))
     scard = new SiegeCombatCard("Funny", 6)
-    wcard = new WeatherCard("Wes", Some())
+    wcard = new WeatherCard("Wes", rain)
   }
   
   test("") {

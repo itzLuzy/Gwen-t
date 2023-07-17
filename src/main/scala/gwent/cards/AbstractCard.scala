@@ -2,7 +2,6 @@ package cl.uchile.dcc
 package gwent.cards
 
 import cl.uchile.dcc.gwent.effects.Effect
-
 import java.util.Objects
 
 /** A representation of a Gwen't card

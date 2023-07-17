@@ -1,5 +1,6 @@
 package cl.uchile.dcc
-package gwent.effects
+package gwent.effects.weather_effects
+
 import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
 class ClearWeather extends WeatherEffect {

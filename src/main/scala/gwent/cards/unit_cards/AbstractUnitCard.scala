@@ -2,8 +2,8 @@ package cl.uchile.dcc
 package gwent.cards.unit_cards
 
 import gwent.cards.AbstractCard
-
-import cl.uchile.dcc.gwent.effects.{Effect, UnitAbility}
+import cl.uchile.dcc.gwent.effects.Effect
+import cl.uchile.dcc.gwent.effects.unit_abilities.UnitAbility
 
 import java.util.Objects
 

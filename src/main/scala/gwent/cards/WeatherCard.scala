@@ -5,6 +5,7 @@ import gwent.cards.AbstractCard
 
 import cl.uchile.dcc.gwent.board.{Board, Section}
 import cl.uchile.dcc.gwent.effects.Effect
+import cl.uchile.dcc.gwent.effects.weather_effects.WeatherEffect
 
 import java.util.Objects
 
@@ -15,7 +16,7 @@ import java.util.Objects
  *               
  * @constructor Creates a new weather card with the specified name and skill
  */
-class WeatherCard(override protected val _name: String, protected val weatherEffect: Effect)
+class WeatherCard(override protected val _name: String, protected val weatherEffect: WeatherEffect)
   extends AbstractCard(_name, Some(weatherEffect)) {
 
   def play(board:  Board, section:  Section): Unit = {

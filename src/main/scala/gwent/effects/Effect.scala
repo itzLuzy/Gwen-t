@@ -2,8 +2,7 @@ package cl.uchile.dcc
 package gwent.effects
 
 import gwent.cards.WeatherCard
-
-import cl.uchile.dcc.gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
+import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
 abstract class Effect {
   def visitCloseCombatCard(card: CloseCombatCard): Unit = {}

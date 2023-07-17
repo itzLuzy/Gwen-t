@@ -1,23 +1,24 @@
 package cl.uchile.dcc
-package gwent.effects
+package gwent.effects.unit_abilities
+
 import gwent.cards.unit_cards.{AbstractUnitCard, CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
-class MoraleBoost extends UnitAbility {
+class TightBond extends UnitAbility {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
-    if (!card.eq(effectCard)) {
-      card.increaseStrength() 
+    if (card.name == effectCard.name) {
+      card.doubleStrength()
     }
   }
 
   override def visitRangeCombatCard(card: RangeCombatCard): Unit = {
-    if (!card.eq(effectCard)) {
-      card.increaseStrength()
+    if (card.name == effectCard.name) {
+      card.doubleStrength()
     }
   }
 
   override def visitSiegeCombatCard(card: SiegeCombatCard): Unit = {
-    if (!card.eq(effectCard)) {
-      card.increaseStrength()
+    if (card.name == effectCard.name) {
+      card.doubleStrength()
     }
   }
 }

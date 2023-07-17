@@ -5,6 +5,7 @@ import gwent.cards.{Card, WeatherCard}
 
 import cl.uchile.dcc.gwent.board.Board
 import cl.uchile.dcc.gwent.cards.unit_cards.CloseCombatCard
+import cl.uchile.dcc.gwent.effects.weather_effects.BitingFrost
 import cl.uchile.dcc.gwent.player.Player
 import munit.FunSuite
 
@@ -85,7 +86,8 @@ class PlayerTest extends FunSuite {
   }
   
   test("If the card is not on the player's hand, the playCard method does nothing") {
-    val card1 = new WeatherCard("WeatherReport")
+    val effect = new BitingFrost
+    val card1 = new WeatherCard("WeatherReport", effect)
     player1.playCard(card1)
     assert(board1.weatherSection.isEmpty)
   }
