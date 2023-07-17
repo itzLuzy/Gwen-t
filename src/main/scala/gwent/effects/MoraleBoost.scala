@@ -2,7 +2,11 @@ package cl.uchile.dcc
 package gwent.effects
 import gwent.cards.unit_cards.{AbstractUnitCard, CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
-class MoraleBoost(val effectCard: AbstractUnitCard) extends Effect {
+class MoraleBoost extends Effect {
+  var effectCard: AbstractUnitCard = null
+  def assignCard(card: AbstractUnitCard): Unit = {
+    effectCard = card
+  }
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
     if (!card.eq(effectCard)) {
       card.increaseStrength() 

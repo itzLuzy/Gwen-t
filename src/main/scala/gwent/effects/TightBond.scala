@@ -2,7 +2,7 @@ package cl.uchile.dcc
 package gwent.effects
 import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
-class TightBond(val name: String) extends Effect {
+class TightBond(private val name: String) extends Effect {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
     if (card.name == name) {
       card.doubleStrength()
