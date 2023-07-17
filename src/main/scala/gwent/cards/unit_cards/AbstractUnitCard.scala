@@ -26,6 +26,8 @@ abstract class AbstractUnitCard (override protected val _name: String, protected
   /** The getter for the card's actual strength */
   def getStrength: Int = strength
   
+  def getOriginalStrength: Int = originalStrength
+  
   def increaseStrength(): Unit = {strength += 1}
   
   def setStrengthToOne(): Unit = {strength = 1}
