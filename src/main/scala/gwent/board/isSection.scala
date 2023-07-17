@@ -2,6 +2,7 @@ package cl.uchile.dcc
 package gwent.board
 
 import cl.uchile.dcc.gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
+import cl.uchile.dcc.gwent.effects.Effect
 import cl.uchile.dcc.gwent.player.Player
 
 trait isSection {
@@ -14,6 +15,12 @@ trait isSection {
    * @param player The player that's being assigned to the section
    */
   def assignPlayer(player: Player): Unit
+
+  def applyEffectClose(effect: Effect): Unit
+
+  def applyEffectRange(effect: Effect): Unit
+
+  def applyEffectSiege(effect: Effect): Unit
 
   /** Adds a Close Combat card to it's respective zone on the section
    * 

@@ -4,6 +4,7 @@ package gwent.board
 import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
 import cl.uchile.dcc.gwent.cards.Card
+import cl.uchile.dcc.gwent.effects.Effect
 import cl.uchile.dcc.gwent.player.Player
 
 import scala.collection.mutable.ListBuffer
@@ -59,24 +60,37 @@ class Section(private val _number: Int) extends isSection {
       _player = Some(player)
     }
   }
+  
+  def applyEffectClose(effect: Effect): Unit = {
+    _closeCombatZone.foreach(x => x.applyEffect(effect))
+  }
+  
+  def applyEffectRange(effect: Effect): Unit = {
+    _rangeCombatZone.foreach(x => x.applyEffect(effect))
+  }
+  
+  def applyEffectSiege(effect: Effect): Unit = {
+    _siegeCombatZone.foreach(x => x.applyEffect(effect))
+  }
+  
   def addCloseCombatCard(card: CloseCombatCard): Unit = {
     _closeCombatZone += card
     if (card.hasEffect) {
-      _closeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+      applyEffectClose(card.effect.get)
     }
   }
 
   def addRangeCombatCard(card: RangeCombatCard): Unit = {
     _rangeCombatZone += card
     if (card.hasEffect) {
-      _rangeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+      applyEffectRange(card.effect.get)
     }
   }
 
   def addSiegeCombatCard(card: SiegeCombatCard): Unit = {
     _siegeCombatZone += card
     if (card.hasEffect) {
-      _siegeCombatZone.foreach(x => x.applyEffect(card.effect.get))
+      applyEffectSiege(card.effect.get)
     }
   }
 

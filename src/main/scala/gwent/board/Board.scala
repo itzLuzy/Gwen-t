@@ -54,6 +54,13 @@ class Board extends isBoard {
 
   def playWeatherCard(card: WeatherCard): Unit = {
     _weatherSection += card
+    section1.applyEffectClose(card.effect.get)
+    section1.applyEffectRange(card.effect.get)
+    section1.applyEffectSiege(card.effect.get)
+    
+    section2.applyEffectClose(card.effect.get)
+    section2.applyEffectRange(card.effect.get)
+    section2.applyEffectSiege(card.effect.get)
   }
 
   def playCloseCombatCard(card: CloseCombatCard, section: Section): Unit = {
