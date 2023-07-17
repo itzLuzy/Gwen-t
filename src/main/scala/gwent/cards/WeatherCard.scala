@@ -4,6 +4,7 @@ package gwent.cards
 import gwent.cards.AbstractCard
 
 import cl.uchile.dcc.gwent.board.{Board, Section}
+import cl.uchile.dcc.gwent.effects.Effect
 
 import java.util.Objects
 

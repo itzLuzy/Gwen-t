@@ -4,6 +4,7 @@ package gwent.cards.unit_cards
 import gwent.cards.unit_cards.AbstractUnitCard
 
 import cl.uchile.dcc.gwent.board.{Board, Section}
+import cl.uchile.dcc.gwent.effects.Effect
 
 import java.util.Objects
 
@@ -16,6 +17,9 @@ import java.util.Objects
  */
 class RangeCombatCard(override protected val _name: String, override protected val originalStrength: Int)
   extends AbstractUnitCard(_name, originalStrength) {
+
+  def applyEffect(effect:  Effect): Unit = effect.visitRangeCombatCard(this)
+  
   def play(board: Board, section: Section): Unit = {
     board.playRangeCombatCard(this, section)
   }
