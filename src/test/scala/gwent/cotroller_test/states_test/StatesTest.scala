@@ -13,9 +13,6 @@ import org.junit.Assert
 import scala.collection.mutable.ListBuffer
 
 class StatesTest extends FunSuite {
-  var board: Board = null
-  var player1: Player = null
-  var player2: Player = null
   var controller: GameController = null
   var gameStart: GameStart = null
   var turnStart: TurnStart = null
@@ -27,10 +24,7 @@ class StatesTest extends FunSuite {
   var gameEnd: GameEnd = null
   
   override def beforeEach(context: BeforeEach): Unit = {
-    board = new Board
-    player1 = new Player("Ramon", board, new ListBuffer[Card], new ListBuffer[Card])
-    player2 = new Player("Pelao", board, new ListBuffer[Card], new ListBuffer[Card])
-    controller = GameController(List(player1,player2))
+    controller = GameController("Okayu")
     gameStart = GameStart(controller)
     turnStart = TurnStart(controller)
     userPlaying = UserPlaying(controller)

@@ -11,13 +11,23 @@ import cl.uchile.dcc.gwent.controller.states.{GameStart, GameState}
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
 
-class GameController(protected var _players: List[Player]) extends isGameController {
+/** The controller of the game
+ * 
+ * The game controller creates and manages all the things related to the game, such as the players and the states
+ * of the game.
+ * 
+ * @param userName The name of the user
+ */
+class GameController(private val userName: String) extends isGameController {
   var state: GameState = GameStart(this)
   protected val _board: Board = new Board
-  _players.foreach(p => p.addObserver(this))
-
+  var players: List[Player] = List.empty[Player]
+  players = new Player(userName, _board, new ListBuffer[Card], new ListBuffer[Card]) :: players
+  players = new Player("CPU-chan", _board,new ListBuffer[Card], new ListBuffer[Card]) :: players
+  players.foreach(p => p.addObserver(this))
+  
   override def update(observable: Subject): Unit = {
-    println(s"Player ${observable} ran out of gems, oh nyooo >.<")
+    println(s"The player '${observable}' ran out of gems, oh nyooooo >.<")
     state.endTurn()
   }
 }

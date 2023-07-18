@@ -13,25 +13,21 @@ import scala.collection.mutable.ListBuffer
 
 class GameControllerTest extends FunSuite {
   var board: Board = null
-  var user: Player = null
-  var computer: Player = null
   var controller: GameController = null
 
   override def beforeEach(context: BeforeEach): Unit = {
     board = new Board
-    user = new Player("Korone", board, new ListBuffer[Card], new ListBuffer[Card])
-    computer = new Player("Okayu", board, new ListBuffer[Card], new ListBuffer[Card])
-    controller = GameController(List(user, computer))
+    controller = GameController("Korone")
   }
   
   test("Observer detects when a player runs out of gems") {
     controller.state.beginGame()
     controller.state.userStarts()
-    user.loseGem()
-    user.loseGem()
+    controller.players.head.loseGem()
+    controller.players.head.loseGem()
     assert(controller.state.isInstanceOf[OnlyComputerPlaying])
-    computer.loseGem()
-    computer.loseGem()
+    controller.players(1).loseGem()
+    controller.players(1).loseGem()
     assert(controller.state.isInstanceOf[TurnEnd])
   }
 }
