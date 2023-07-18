@@ -56,7 +56,7 @@ abstract class AbstractUnitCard (override protected val _name: String, protected
 
   /** Applies the weather effect setting the card's strength to 1 */
   def enterOnWeather(): Unit = {
-    _strength = 1
+    on_weather = true
   }
   
   /** Unapplies the weather effect */
