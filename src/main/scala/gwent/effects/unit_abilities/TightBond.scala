@@ -21,4 +21,13 @@ class TightBond extends UnitAbility {
       card.doubleStrength()
     }
   }
+
+  override def equals(obj: Any): Boolean = {
+    if (obj.isInstanceOf[TightBond]) {
+      true
+    }
+    else {
+      false
+    }
+  }
 }

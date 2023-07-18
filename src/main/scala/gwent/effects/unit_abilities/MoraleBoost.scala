@@ -21,4 +21,13 @@ class MoraleBoost extends UnitAbility {
       card.increaseStrength()
     }
   }
+
+  override def equals(obj: Any): Boolean = {
+    if (obj.isInstanceOf[MoraleBoost]) {
+      true
+    }
+    else {
+      false
+    }
+  }
 }

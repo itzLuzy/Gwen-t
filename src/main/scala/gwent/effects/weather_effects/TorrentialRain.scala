@@ -5,4 +5,13 @@ import gwent.cards.unit_cards.SiegeCombatCard
 
 class TorrentialRain extends WeatherEffect {
   override def visitSiegeCombatCard(card: SiegeCombatCard): Unit = card.setStrengthToOne()
+
+  override def equals(obj: Any): Boolean = {
+    if (obj.isInstanceOf[TorrentialRain]) {
+      true
+    }
+    else {
+      false
+    }
+  }
 }
