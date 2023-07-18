@@ -12,7 +12,7 @@ import java.util.Objects
 /** A representation of a weather card
  * 
  * @param _name The name of the card
- * @param weatherEffect The effect of the weather card
+ * @param weatherEffect The effect of the weather card. Unlike other cards, all weather cards have effects
  *               
  * @constructor Creates a new weather card with the specified name and effect
  */
