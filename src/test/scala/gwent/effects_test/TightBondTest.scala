@@ -66,6 +66,11 @@ class TightBondTest extends FunSuite{
     player2 = new Player("p2", board, deck2, hand2, 1)
   }
 
+  test("Equals and Hash methods") {
+    assertEquals(bond1, bond3)
+    assertEquals(bond1.##, bond4.##)
+  }
+
   test("MoraleBoost works") {
     player1.playCard(ccard3)
     player1.playCard(ccard2)

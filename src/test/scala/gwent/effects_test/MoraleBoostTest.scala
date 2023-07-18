@@ -61,7 +61,11 @@ class MoraleBoostTest extends FunSuite{
     player1 = new Player("p1", board, deck, hand, 1)
     player2 = new Player("p2", board, deck2, hand2, 1)
   }
-
+  
+  test("Equals and Hash methods") {
+    assertEquals(morale1,morale6)
+    assertEquals(morale1.##, morale2.##)
+  }
   test("MoraleBoost works") {
     player1.playCard(ccard)
     player1.playCard(ccard2)
