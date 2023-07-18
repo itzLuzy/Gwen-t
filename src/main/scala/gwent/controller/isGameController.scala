@@ -9,6 +9,12 @@ import gwent.controller.observer.Observer
 import java.rmi.server.UnicastRemoteObject
 
 trait isGameController extends Observer {
+  /** The current state of the game */
   var state: GameState
+  
+  /** A list containing the players of the game */
+  var players: List[Player]
+  
+  /** The board of the game */
   protected val _board: Board
 }

@@ -12,20 +12,22 @@ import scala.util.Random
 import scala.collection.mutable.ListBuffer
 
 /** The controller of the game
- * 
+ *
  * The game controller creates and manages all the things related to the game, such as the players and the states
- * of the game.
- * 
+ * of the game. The controler also works as an observer to watch over the players.
+ *
  * @param userName The name of the user
  */
 class GameController(private val userName: String) extends isGameController {
-  var state: GameState = GameStart(this)
   protected val _board: Board = new Board
+  var state: GameState = GameStart(this)
   var players: List[Player] = List.empty[Player]
   players = new Player(userName, _board, new ListBuffer[Card], new ListBuffer[Card]) :: players
   players = new Player("CPU-chan", _board,new ListBuffer[Card], new ListBuffer[Card]) :: players
-  players.foreach(p => p.addObserver(this))
   
+  /** Adds the game controller to every player as an observer */
+  players.foreach(p => p.addObserver(this))
+
   override def update(observable: Subject): Unit = {
     println(s"The player '${observable}' ran out of gems, oh nyooooo >.<")
     state.endTurn()
