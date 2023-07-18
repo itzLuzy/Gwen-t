@@ -143,6 +143,5 @@ class EffectsTest extends FunSuite {
     player1.playCard(rcard2)
     assertEquals(board.section1.rangeCombatZone.head.getStrength, rcard.getOriginalStrength*4)
     assertEquals(board.section1.rangeCombatZone(1).getStrength, rcard2.getOriginalStrength*2)
-
   }
 }
