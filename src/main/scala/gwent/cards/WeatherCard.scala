@@ -12,9 +12,9 @@ import java.util.Objects
 /** A representation of a weather card
  * 
  * @param _name The name of the card
- * @param weatherEffect The effect of the card
+ * @param weatherEffect The effect of the weather card
  *               
- * @constructor Creates a new weather card with the specified name and skill
+ * @constructor Creates a new weather card with the specified name and effect
  */
 class WeatherCard(override protected val _name: String, protected val weatherEffect: WeatherEffect)
   extends AbstractCard(_name, Some(weatherEffect)) {

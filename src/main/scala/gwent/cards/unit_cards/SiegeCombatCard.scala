@@ -13,6 +13,7 @@ import java.util.Objects
  *
  * @param _name The name of the card
  * @param originalStrength The strength of the card
+ * @param _effect An Option that can contain the card's effect
  *
  * @constructor Creates a new siege combat card with the specified name and strength
  */
