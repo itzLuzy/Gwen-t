@@ -3,6 +3,8 @@ package gwent.effects.weather_effects
 
 import gwent.cards.unit_cards.SiegeCombatCard
 
+import java.util.Objects
+
 class TorrentialRain extends WeatherEffect {
   override def visitSiegeCombatCard(card: SiegeCombatCard): Unit = card.setStrengthToOne()
 
@@ -14,4 +16,5 @@ class TorrentialRain extends WeatherEffect {
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[TorrentialRain])
 }

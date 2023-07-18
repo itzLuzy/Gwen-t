@@ -3,6 +3,8 @@ package gwent.effects.weather_effects
 
 import gwent.cards.unit_cards.RangeCombatCard
 
+import java.util.Objects
+
 class ImpenetrableFog extends WeatherEffect {
   override def visitRangeCombatCard(card: RangeCombatCard): Unit = card.setStrengthToOne()
 
@@ -14,4 +16,5 @@ class ImpenetrableFog extends WeatherEffect {
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[ImpenetrableFog])
 }

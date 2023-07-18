@@ -26,11 +26,11 @@ class WeatherCard(override protected val _name: String, protected val weatherEff
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[WeatherCard]) {
       val that = obj.asInstanceOf[WeatherCard]
-      (this eq that) || (that.name == this.name && that._effect == this._effect)
+      (this eq that) || (that.name == this.name && that.weatherEffect == this.weatherEffect)
     }
     else {
       false
     }
   }
-  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], _name, _effect)
+  override def hashCode(): Int = Objects.hash(classOf[WeatherCard], _name, weatherEffect)
 }

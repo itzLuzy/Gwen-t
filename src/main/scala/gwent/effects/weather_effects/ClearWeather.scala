@@ -3,6 +3,8 @@ package gwent.effects.weather_effects
 
 import gwent.cards.unit_cards.{CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
+import java.util.Objects
+
 class ClearWeather extends WeatherEffect {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = card.resetStrength()
   override def visitRangeCombatCard(card:  RangeCombatCard): Unit = card.resetStrength()
@@ -16,4 +18,5 @@ class ClearWeather extends WeatherEffect {
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[ClearWeather])
 }

@@ -3,6 +3,10 @@ package gwent.effects.unit_abilities
 
 import gwent.cards.unit_cards.{AbstractUnitCard, CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 
+import cl.uchile.dcc.gwent.effects.weather_effects.BitingFrost
+
+import java.util.Objects
+
 class TightBond extends UnitAbility {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
     if (card.name == effectCard.name) {
@@ -30,4 +34,5 @@ class TightBond extends UnitAbility {
       false
     }
   }
+  override def hashCode(): Int = Objects.hash(classOf[TightBond])
 }

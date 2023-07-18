@@ -2,6 +2,7 @@ package cl.uchile.dcc
 package gwent.effects.weather_effects
 
 import gwent.cards.unit_cards.CloseCombatCard
+import java.util.Objects
 
 class BitingFrost extends WeatherEffect {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = card.setStrengthToOne()
@@ -14,4 +15,6 @@ class BitingFrost extends WeatherEffect {
       false
     }
   }
+  
+  override def hashCode(): Int = Objects.hash(classOf[BitingFrost])
 }
