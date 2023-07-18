@@ -4,6 +4,7 @@ package gwent.effects.weather_effects
 import gwent.cards.unit_cards.CloseCombatCard
 import java.util.Objects
 
+/** A weather effect that sets the strength of close combat cards on the board to one */
 class BitingFrost extends WeatherEffect {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = card.setStrengthToOne()
 

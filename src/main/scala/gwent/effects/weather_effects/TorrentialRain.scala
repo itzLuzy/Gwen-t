@@ -5,6 +5,7 @@ import gwent.cards.unit_cards.SiegeCombatCard
 
 import java.util.Objects
 
+/** A weather effect that sets the strength of siege combat cards on the board to one */
 class TorrentialRain extends WeatherEffect {
   override def visitSiegeCombatCard(card: SiegeCombatCard): Unit = card.setStrengthToOne()
 
