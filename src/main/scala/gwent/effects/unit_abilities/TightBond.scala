@@ -7,6 +7,7 @@ import cl.uchile.dcc.gwent.effects.weather_effects.BitingFrost
 
 import java.util.Objects
 
+/** A unit card ability that duplicates the strength of the cards with the same name as the card (including itself) */
 class TightBond extends UnitAbility {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
     if (card.name == effectCard.name) {

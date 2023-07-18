@@ -4,6 +4,7 @@ package gwent.effects.unit_abilities
 import gwent.cards.unit_cards.{AbstractUnitCard, CloseCombatCard, RangeCombatCard, SiegeCombatCard}
 import java.util.Objects
 
+/** A unit card ability that increases the strength of the cards on the same zone as the card (excluding itself) by one*/
 class MoraleBoost extends UnitAbility {
   override def visitCloseCombatCard(card: CloseCombatCard): Unit = {
     if (!card.eq(effectCard)) {
