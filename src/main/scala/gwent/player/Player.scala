@@ -63,6 +63,9 @@ class Player (private val _name: String, private var _board: Board, private var 
     if (_gems >= 1) {
       _gems -= 1
     }
+    if (_gems == 0) {
+      notifyObservers()
+    }
   }
   
   def playCard(card: Card): Unit = {

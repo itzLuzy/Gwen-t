@@ -16,7 +16,7 @@ class GameController(protected var _players: List[Player]) extends isGameControl
   protected val _board: Board = new Board
   _players.foreach(p => p. addObserver(this))
 
-  override def update(observable: Subject[Int], value:  Int): Unit = {
+  override def update(observable: Subject): Unit = {
     println(s"Player ${observable} ran out of gems, oh nyooo >.<")
   }
 }

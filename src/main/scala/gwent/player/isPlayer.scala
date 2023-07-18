@@ -4,7 +4,7 @@ package gwent.player
 import gwent.cards.Card
 
 import cl.uchile.dcc.gwent.controller.observer.{AbstractSubject, Observer}
-trait isPlayer extends AbstractSubject[Int]{
+trait isPlayer extends AbstractSubject{
 
   /** Player plays a card
    * 

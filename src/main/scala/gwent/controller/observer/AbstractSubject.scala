@@ -1,16 +1,16 @@
 package cl.uchile.dcc
 package gwent.controller.observer
 
-abstract class AbstractSubject[T] extends Subject[T] {
-  private var observers: List[Observer[T]] = Nil
+abstract class AbstractSubject extends Subject {
+  private var observers: List[Observer] = Nil
 
-  override def addObserver(observer: Observer[T]): Unit = {
+  override def addObserver(observer: Observer): Unit = {
     observers = observer :: observers
   }
 
-  override def notifyObservers(value: T): Unit = {
+  override def notifyObservers(): Unit = {
     for (observer <- observers) {
-      observer.update(this, value)
+      observer.update(this)
     }
   }
 }

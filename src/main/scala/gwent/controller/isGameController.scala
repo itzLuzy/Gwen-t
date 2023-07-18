@@ -8,7 +8,7 @@ import gwent.controller.observer.Observer
 
 import java.rmi.server.UnicastRemoteObject
 
-trait isGameController extends Observer[Int] {
+trait isGameController extends Observer {
   var state: GameState
   protected val _board: Board
 }
