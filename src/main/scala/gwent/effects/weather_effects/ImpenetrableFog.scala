@@ -7,7 +7,7 @@ import java.util.Objects
 
 /** A weather effect that sets the strength of range combat cards on the board to one */
 class ImpenetrableFog extends WeatherEffect {
-  override def visitRangeCombatCard(card: RangeCombatCard): Unit = card.setStrengthToOne()
+  override def visitRangeCombatCard(card: RangeCombatCard): Unit = card.enterOnWeather()
 
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[ImpenetrableFog]) {

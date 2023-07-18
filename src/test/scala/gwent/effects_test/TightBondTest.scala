@@ -75,19 +75,19 @@ class TightBondTest extends FunSuite{
     player1.playCard(ccard3)
     player1.playCard(ccard2)
     player1.playCard(ccard)
-    assertEquals(board.section1.closeCombatZone.head.getStrength, ccard3.getOriginalStrength*2)
-    assertEquals(board.section1.closeCombatZone(1).getStrength, ccard2.getOriginalStrength*2)
-    assertEquals(board.section1.closeCombatZone(2).getStrength, ccard.getOriginalStrength*2)
+    assertEquals(board.section1.closeCombatZone.head.strength, ccard3.original_strength*2)
+    assertEquals(board.section1.closeCombatZone(1).strength, ccard2.original_strength*2)
+    assertEquals(board.section1.closeCombatZone(2).strength, ccard.original_strength*2)
 
     player1.playCard(scard)
     player1.playCard(scard2)
-    assertEquals(board.section1.siegeCombatZone.head.getStrength, scard.getOriginalStrength*4)
-    assertEquals(board.section1.siegeCombatZone(1).getStrength, scard2.getOriginalStrength*2)
+    assertEquals(board.section1.siegeCombatZone.head.strength, scard.original_strength*4)
+    assertEquals(board.section1.siegeCombatZone(1).strength, scard2.original_strength*2)
 
     player1.playCard(rcard)
     player1.playCard(rcard2)
-    assertEquals(board.section1.rangeCombatZone.head.getStrength, rcard.getOriginalStrength*4)
-    assertEquals(board.section1.rangeCombatZone(1).getStrength, rcard2.getOriginalStrength*2)
+    assertEquals(board.section1.rangeCombatZone.head.strength, rcard.original_strength*4)
+    assertEquals(board.section1.rangeCombatZone(1).strength, rcard2.original_strength*2)
   }
 
 }

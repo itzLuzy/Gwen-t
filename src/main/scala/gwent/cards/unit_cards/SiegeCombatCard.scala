@@ -12,14 +12,14 @@ import java.util.Objects
 /** A representation of a unit card of the siege combat type
  *
  * @param _name The name of the card
- * @param originalStrength The strength of the card
+ * @param _original_strength The strength of the card
  * @param _effect An Option that can contain the card's effect
  *
  * @constructor Creates a new siege combat card with the specified name and strength
  */
-class SiegeCombatCard(override protected val _name: String, override protected val originalStrength: Int,
+class SiegeCombatCard(override protected val _name: String, override protected val _original_strength: Int,
                       override protected val _effect: Option[UnitAbility] = None)
-  extends AbstractUnitCard(_name, originalStrength, _effect) {
+  extends AbstractUnitCard(_name, _original_strength, _effect) {
 
   def applyEffect(effect:  Effect): Unit = effect.visitSiegeCombatCard(this)
   def play(board: Board, section:  Section): Unit = {
@@ -29,12 +29,12 @@ class SiegeCombatCard(override protected val _name: String, override protected v
   override def equals(obj: Any): Boolean = {
     if (obj.isInstanceOf[SiegeCombatCard]) {
       val that = obj.asInstanceOf[SiegeCombatCard]
-      (this eq that) || (that._name == this._name && that.originalStrength == this.originalStrength && that._effect == this._effect)
+      (this eq that) || (that._name == this._name && that._original_strength == this._original_strength && that._effect == this._effect)
     }
     else {
       false
     }
   }
 
-  override def hashCode(): Int = Objects.hash(classOf[RangeCombatCard], _name, originalStrength)
+  override def hashCode(): Int = Objects.hash(classOf[RangeCombatCard], _name, _original_strength)
 }

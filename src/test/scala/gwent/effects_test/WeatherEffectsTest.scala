@@ -115,14 +115,14 @@ class WeatherEffectsTest extends FunSuite {
     player2.playCard(scard3)
     player2.playCard(rcard3)
     player1.playCard(wfrost)
-    board.section1.closeCombatZone.foreach(x => assertEquals(x.getStrength,1))
-    board.section2.closeCombatZone.foreach(x => assertEquals(x.getStrength,1))
+    board.section1.closeCombatZone.foreach(x => assertEquals(x.strength,1))
+    board.section2.closeCombatZone.foreach(x => assertEquals(x.strength,1))
     
-    board.section1.rangeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.rangeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.rangeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.rangeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
     
-    board.section1.siegeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.siegeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.siegeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.siegeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
   }
 
   test("ClearWeather") {
@@ -136,12 +136,12 @@ class WeatherEffectsTest extends FunSuite {
     player1.playCard(wfog)
     player2.playCard(wrain)
     player2.playCard(wclear)
-    board.section1.closeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
-    board.section1.siegeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
-    board.section1.rangeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
-    board.section2.closeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
-    board.section2.siegeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
-    board.section2.rangeCombatZone.foreach(x => assertEquals(x.getStrength, x.getOriginalStrength))
+    board.section1.closeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
+    board.section1.siegeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
+    board.section1.rangeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
+    board.section2.closeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
+    board.section2.siegeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
+    board.section2.rangeCombatZone.foreach(x => assertEquals(x.strength, x.original_strength))
   }
 
   test("ImpenetrableFog") {
@@ -155,14 +155,14 @@ class WeatherEffectsTest extends FunSuite {
     player2.playCard(scard3)
     player2.playCard(rcard3)
     player1.playCard(wfog)
-    board.section1.closeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.closeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.closeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.closeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
 
-    board.section1.rangeCombatZone.foreach(x => assertEquals(x.getStrength, 1))
-    board.section2.rangeCombatZone.foreach(x => assertEquals(x.getStrength, 1))
+    board.section1.rangeCombatZone.foreach(x => assertEquals(x.strength, 1))
+    board.section2.rangeCombatZone.foreach(x => assertEquals(x.strength, 1))
 
-    board.section1.siegeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.siegeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.siegeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.siegeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
   }
 
   test("TorrentialRain") {
@@ -176,13 +176,13 @@ class WeatherEffectsTest extends FunSuite {
     player2.playCard(scard3)
     player2.playCard(rcard3)
     player2.playCard(wrain)
-    board.section1.closeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.closeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.closeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.closeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
 
-    board.section1.rangeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
-    board.section2.rangeCombatZone.foreach(x => assertNotEquals(x.getStrength, 1))
+    board.section1.rangeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
+    board.section2.rangeCombatZone.foreach(x => assertNotEquals(x.strength, 1))
 
-    board.section1.siegeCombatZone.foreach(x => assertEquals(x.getStrength, 1))
-    board.section2.siegeCombatZone.foreach(x => assertEquals(x.getStrength, 1))
+    board.section1.siegeCombatZone.foreach(x => assertEquals(x.strength, 1))
+    board.section2.siegeCombatZone.foreach(x => assertEquals(x.strength, 1))
   }
 }

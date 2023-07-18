@@ -11,6 +11,6 @@ class AbstractUnitCardTest extends FunSuite {
   }
 
   test("The strength getter for unit cards works properly") {
-    assertEquals(card.getStrength, 10)
+    assertEquals(card.strength, 10)
   }
 }

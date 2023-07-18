@@ -69,17 +69,17 @@ class MoraleBoostTest extends FunSuite{
   test("MoraleBoost works") {
     player1.playCard(ccard)
     player1.playCard(ccard2)
-    assertEquals(board.section1.closeCombatZone.head.getStrength, ccard.getOriginalStrength + 1)
-    assertEquals(board.section1.closeCombatZone(1).getStrength, ccard2.getOriginalStrength)
+    assertEquals(board.section1.closeCombatZone.head.strength, ccard.original_strength + 1)
+    assertEquals(board.section1.closeCombatZone(1).strength, ccard2.original_strength)
 
     player1.playCard(scard)
     player1.playCard(scard2)
-    assertEquals(board.section1.siegeCombatZone.head.getStrength, scard.getOriginalStrength + 1)
-    assertEquals(board.section1.siegeCombatZone(1).getStrength, scard2.getOriginalStrength)
+    assertEquals(board.section1.siegeCombatZone.head.strength, scard.original_strength + 1)
+    assertEquals(board.section1.siegeCombatZone(1).strength, scard2.original_strength)
 
     player1.playCard(rcard)
     player1.playCard(rcard2)
-    assertEquals(board.section1.rangeCombatZone.head.getStrength, rcard.getOriginalStrength + 1)
-    assertEquals(board.section1.rangeCombatZone(1).getStrength, rcard2.getOriginalStrength)
+    assertEquals(board.section1.rangeCombatZone.head.strength, rcard.original_strength + 1)
+    assertEquals(board.section1.rangeCombatZone(1).strength, rcard2.original_strength)
   }
 }
