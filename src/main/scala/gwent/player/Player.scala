@@ -100,4 +100,6 @@ class Player (private val _name: String, private var _board: Board, private var 
   }
 
   override def hashCode(): Int = Objects.hash(classOf[Player], _name, _board)
+
+  override def toString: String = _name
 }
