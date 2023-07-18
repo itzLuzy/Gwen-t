@@ -14,9 +14,10 @@ import scala.collection.mutable.ListBuffer
 class GameController(protected var _players: List[Player]) extends isGameController {
   var state: GameState = GameStart(this)
   protected val _board: Board = new Board
-  _players.foreach(p => p. addObserver(this))
+  _players.foreach(p => p.addObserver(this))
 
   override def update(observable: Subject): Unit = {
     println(s"Player ${observable} ran out of gems, oh nyooo >.<")
+    state.endTurn()
   }
 }
