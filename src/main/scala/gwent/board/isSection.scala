@@ -16,10 +16,22 @@ trait isSection {
    */
   def assignPlayer(player: Player): Unit
 
+  /** Applies a card effect to the CloseCombat zone
+   * 
+   * @param effect The effect that's being applied
+   */
   def applyEffectClose(effect: Effect): Unit
 
+  /** Applies a card effect to the RangeCombat zone
+   *
+   * @param effect The effect that's being applied
+   */
   def applyEffectRange(effect: Effect): Unit
 
+  /** Applies a card effect to the SiegeCombat zone
+   *
+   * @param effect The effect that's being applied
+   */
   def applyEffectSiege(effect: Effect): Unit
 
   /** Adds a Close Combat card to it's respective zone on the section
