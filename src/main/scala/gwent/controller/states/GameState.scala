@@ -43,7 +43,7 @@ class GameState (val context: GameController) {
     transitionError()
   }
   
-  /** Error that is thrown when there's an invalid transition between states */
+  /** Throws an error when there's an invalid transition between states */
   private def transitionError(): Unit = {
     throw new InvalidTransitionException("Invalid states transition")
   }
