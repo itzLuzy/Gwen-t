@@ -11,6 +11,8 @@ import scala.collection.mutable.ListBuffer
 
 /** A class representing a Gwen't Player.
  * 
+ * This class represents a player of the game and also is a subject of the GameController observer
+ * 
  * @param _name The name of the player
  * @param _board The board in wich the player is going to play
  * @param _deck The player's initial deck
@@ -26,7 +28,7 @@ class Player (private val _name: String, private var _board: Board, private var 
   /** The section assigned to the player on the board
    *
    * This variable specifies the section of the board in wich the player is going to play their unit cards. If the
-   * board specified on the constructor is has no sections available, the _section is set to None, else, it
+   * board specified on the constructor has no sections available, the _section is set to None, else, it
    * contains a Some with the section assigned to the player.
    */
   private var _section: Option[Section] = _board.assignSection(this)

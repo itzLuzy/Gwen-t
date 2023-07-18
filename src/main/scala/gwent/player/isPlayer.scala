@@ -32,6 +32,7 @@ trait isPlayer extends AbstractSubject{
    * 
    * This method reduces the player's gem amount in one.
    * Only works when the player has at least one gem, to ensure that the amount of gems is never negative.
+   * When the gem counter reaches 0, the player notifies the GameController.
    */
   def loseGem(): Unit
 }
