@@ -1,7 +1,7 @@
 package cl.uchile.dcc
 package gwent.controller.observer
 
-trait Subject {
-  def addObserver(observer: Observer): Unit
-  def notifyObservers(value: Any): Unit
+trait Subject[T] {
+  def addObserver(observer: Observer[T]): Unit
+  def notifyObservers(value: T): Unit
 }
