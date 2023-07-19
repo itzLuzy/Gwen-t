@@ -27,7 +27,8 @@ class GameController(private val userName: String) extends isGameController {
   
   /** Adds the game controller to every player as an observer */
   players.foreach(p => p.addObserver(this))
-
+  
+  /** When the subject (Player) runs out of gems the controller changes the game state */
   override def update(observable: Subject): Unit = {
     println(s"The player '${observable}' ran out of gems, oh nyooooo >.<")
     state.endTurn()
