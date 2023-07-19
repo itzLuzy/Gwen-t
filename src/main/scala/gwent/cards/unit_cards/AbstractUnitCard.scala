@@ -29,6 +29,7 @@ abstract class AbstractUnitCard (override protected val _name: String, protected
   /** The actual ingame strength of the card */
   protected var _strength: Int = _original_strength
   
+  /** A boolean to tell if the card is under a weather condition or not */
   protected var on_weather: Boolean = false
   
   /** The getter for the card's actual strength, if the card is affected by the weather it always returns 1 */
